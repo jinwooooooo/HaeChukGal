@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.PlayerInfoMapper">
+	<insert id="insertPlayerInfo">
+		insert into PLAYER(player_no, game, score, playerName, assist, attackPoint, shoot, shootOnTarget, foul, yellowCard, redCard, offSide, teamName, playerImage, leagueName, rank, season)
+		values((select nvl(max(player_no),0)+1 as player_no from PLAYER), #{game}, #{score}, #{playerName}, #{assist}, #{attackPoint}, #{shoot}, #{shootOnTarget}, #{foul}, #{yellowCard}, #{redCard}, #{offSide}, #{teamName}, #{playerImage}, #{p_leagueName},#{rank}, #{p_season})
+	</insert>
+	<delete id="deletePlayerInfo" >
+		delete from PLAYER where season = #{p_season} AND leagueName = #{p_leagueName}
+	</delete>
+</mapper>

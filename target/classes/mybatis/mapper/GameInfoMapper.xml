@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.GameInfoMapper">
+	<insert id="insertGameInfo">
+		insert into GAMEINFORMATION(game_no,leagueName,homename,homescore,homeimage,awayname,awayscore, awayimage,round, stadium,matchdate,homewin,awaywin,season, matchtime, gamestatus)
+		values((select nvl(max(game_no),0)+1 as game_no from GAMEINFORMATION), #{g_leagueName},#{homename}, #{homescore},#{homeimage},#{awayname}, #{awayscore}, #{awayimage}, #{round}, #{stadium}, #{matchdate}, #{homewin}, #{awaywin},#{g_season}, #{matchtime}, #{gamestatus})
+	</insert>
+	<delete id="deleteGameInfo" >
+		delete from GAMEINFORMATION where season = #{g_season} AND leagueName = #{g_leagueName}
+	</delete>
+</mapper>
