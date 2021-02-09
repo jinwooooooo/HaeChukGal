@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +87,7 @@
         <div class="section-title">
           <h2>회원가입</h2>
         </div>
-        <div class="row mt-1">
+       	<div class="row mt-1">
           <div class="col-lg-8 mt-5 mt-lg-0" style="margin: 0 auto;">
             <form action="join" method="post" id="joinform" name="joinform" class="join_form" style="margin: 0 auto">
               <div class="form-group" style="padding-bottom:15px;">
@@ -103,12 +104,12 @@
               </div>
               <div class="form-group" style="padding-bottom:25px;">
               	<label style="display:block;">응원 팀</label>
-                <select class="form-control" style="width:49%; display:inline;" onchange="categoryChange(this)">
+                <select class="form-control" style="width:49%; display:inline;" onchange="categoryChange(this)" name="leagueName">
                 	<option>리그 선택</option>
-                	<option value="premier">프리미어리그</option>
-                	<option value="la">라리가</option>
-                	<option value="bundes">분데스리가</option>
-                	<option value="league1">리그앙</option>
+                	<option value="epl">프리미어리그</option>
+                	<option value="primera">라리가</option>
+                	<option value="bundesliga">분데스리가</option>
+                	<option value="ligue1">리그앙</option>
                 	<option value="seriea">세리에A</option>
                 </select>
                 <select class="form-control" name="teamname" style="width:49%; display:inline;" id="liketeam">
@@ -119,28 +120,55 @@
               <div style="text-align:center;">
        	      <div class="text-center" style="display: inline-block;"><button type="submit">가입</button></div>
               </div>
-            </form>
+            </form>            
           </div>
         </div>
       </div>
     </section>
+    
     <!-- End Login Section -->
   </main>
-  
+ 
   <script>
   	function categoryChange(e){
-  		var liketeam_premier=["맨유","아스날","첼시"];
-  		var liketeam_la=["바르셀로나","레알마드리드","AT마드리드"];
-  		var liketeam_bundes=["도르트문트","뮌헨","라이프치히"];
-  		var liketeam_league1=["파리","리옹","몽펠리에"];
-  		var liketeam_seriea=["인터밀란","AC밀란","유벤투스"];
+  		var liketeam_premier="${epl}";
+  		var liketeam_la="${laliga}";
+  		var liketeam_bundes="${bundesliga}";
+  		var liketeam_league1="${ligue1}";
+  		var liketeam_seriea="${seriea}";
+  		
+  		var liketeam_premier_str = "${epl}";
+  		liketeam_premier_str = liketeam_premier_str.replace(/\[/g,'');
+  		liketeam_premier_str = liketeam_premier_str.replace(/\]/g,'');
+  		var liketeam_premier = liketeam_premier_str.split(', ');
+  		
+  		var liketeam_la_str = "${laliga}";
+  		liketeam_la_str = liketeam_la_str.replace(/\[/g,'');
+  		liketeam_la_str = liketeam_la_str.replace(/\]/g,'');
+  		var liketeam_la = liketeam_la_str.split(', ');
+  		
+  		var liketeam_bundes_str = "${bundesliga}";
+  		liketeam_bundes_str = liketeam_bundes_str.replace(/\[/g,'');
+  		liketeam_bundes_str = liketeam_bundes_str.replace(/\]/g,'');
+  		var liketeam_bundes = liketeam_bundes_str.split(', ');
+  		
+  		var liketeam_league1_str = "${ligue1}";
+  		liketeam_league1_str = liketeam_league1_str.replace(/\[/g,'');
+  		liketeam_league1_str = liketeam_league1_str.replace(/\]/g,'');
+  		var liketeam_league1 = liketeam_league1_str.split(', ');
+  		
+  		
+  		var liketeam_seriea_str = "${seriea}";
+  		liketeam_seriea_str = liketeam_seriea_str.replace(/\[/g,'');
+  		liketeam_seriea_str = liketeam_seriea_str.replace(/\]/g,'');
+  		var liketeam_seriea = liketeam_seriea_str.split(', ');
   		
   		var target=document.getElementById("liketeam")
   		
-  		if(e.value=="premier") var teams=liketeam_premier;
-  		if(e.value=="la") var teams=liketeam_la;
-  		if(e.value=="bundes") var teams=liketeam_bundes;
-  		if(e.value=="league1") var teams=liketeam_league1;
+  		if(e.value=="epl") var teams=liketeam_premier;
+  		if(e.value=="primera") var teams=liketeam_la;
+  		if(e.value=="bundesliga") var teams=liketeam_bundes;
+  		if(e.value=="ligue1") var teams=liketeam_league1;
   		if(e.value=="seriea") var teams=liketeam_seriea;
   		
   		target.options.length=0;

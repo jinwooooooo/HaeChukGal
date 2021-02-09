@@ -10,4 +10,5 @@ public interface BoardService {
 	public void insertBoard(BoardDTO boardDTO);
 	public int getBoardTotalRows();
 	public List<BoardDTO> getBoardList(PagerDTO pager);
+	public String selectNameByNo(int member_no);
 }

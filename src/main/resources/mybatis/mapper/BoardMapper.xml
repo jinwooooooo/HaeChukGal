@@ -13,18 +13,24 @@
 		values((select nvl(max(board_no),0)+1 as board_no from BOARD),#{content},#{title},sysdate,#{leagueName},#{member_no}, #{fileName})
 	</insert>
 	
-	<select id="getBoardTotalRows">
-		select *
+	<select id="getBoardTotalRows" resultType="int">
+		select count(*)
 		from board
 	</select>
 	
-	<select id="selectByPage" parameterType="pager" resultType="boardDTO">
+	<select id="selectByPage" parameterType="pagerDTO" resultType="boardDTO">
 		<![CDATA[
-		SELECT *
-		FROM (SELECT rownum as rn, A.*
-			  FROM (SELECT * FROM board ORDER BY board_no DESC) A
-			  WHERE rownum <= #{endRowNo})
-		WHERE rn >= #{startRowNo}
+		select *
+		from (select rownum as rn, A.*
+			  from (select * from board ORDER BY board_no DESC) A
+			  where rownum <= #{endRowNo})
+		where rn >= #{startRowNo}
 		]]>
+	</select>
+	
+	<select id="selectNameByNo" parameterType="Integer" resultType="String">
+		select name
+		from member
+		where member_no=#{member_no}
 	</select>
 </mapper>

@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.mapper.StarMapper">
 	<insert id="insertStar">
-		insert into Star(star_no,member_no,teamname)
+		insert into Star(star_no,member_no,teamname, leagueName)
 		values((select nvl(max(star_no),0)+1 as star_no from star),
 			   (select nvl(max(member_no),0) as member_no from member),
-			    #{teamname})
+			    #{teamname}, #{leagueName})
 	</insert>
 </mapper>

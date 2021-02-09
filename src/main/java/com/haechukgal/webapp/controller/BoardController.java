@@ -38,8 +38,10 @@ public class BoardController {
 		List<String> list_name=new ArrayList<String>();
 		for(BoardDTO boardDTO : list)
 		{
-			//list_name.add(memberService.selectNameByNo(boardDTO.getMember_no()));
+			list_name.add(boardService.selectNameByNo(boardDTO.getMember_no()));
 		}
+		
+		model.addAttribute("list_name",list_name);
 		
 		return "board";
 	}

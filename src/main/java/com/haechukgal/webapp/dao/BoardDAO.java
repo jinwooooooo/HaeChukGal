@@ -10,4 +10,5 @@ public interface BoardDAO {
 	public void insertBoard(BoardDTO boardDTO);
 	public int getBoardTotalRows();
 	public List<BoardDTO> selectByPage(PagerDTO pager);
+	public String selectNameByNo(int member_no);
 }

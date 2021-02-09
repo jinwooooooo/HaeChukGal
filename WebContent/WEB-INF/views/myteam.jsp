@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -38,8 +39,8 @@
   ======================================================== -->
 </head>
 
-<body>
 
+<body>
   <!-- ======= Mobile nav toggle button ======= -->
   <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
@@ -86,8 +87,8 @@
 
         <div class="section-title">
           <h2>응원 팀 일정</h2>
-          <p>나의 응원 팀</p><br/><br/>
-          <p>응원 팀 로고 응원 팀 로고</p><br/><br/>
+          <p>나의 응원 팀 (${myteaminfo.homename})</p><br/>
+          <p><img src="${myteaminfo.homeimage}" style="width: 100px; height: 100px;"/></p>
         </div>
 
        	<table class="table table-striped" style="text-align:center;">
@@ -99,33 +100,23 @@
        	      <th>경기 정보</th>
        	      <th>리그</th>
        	      <th>구분</th>
+       	      <th>상태</th>
        	    </tr>
        	  </thead>
        	  <tbody>
-       	    <tr>
-       	      <td>01.03 (일)</td>
-       	      <td>20:30</td>
-       	      <td>Goodison Park</td>
-       	      <td>에버튼 0 vs 1 웨스트햄</td>
-       	      <td>프리미어 리그</td>
-       	      <td>17R</td>
-       	    </tr>
-       	    <tr>
-       	      <td>01.13 (수)</td>
-       	      <td>03:00</td>
-       	      <td>Old Trafford</td>
-       	      <td>맨유 1 vs 0 리버풀</td>
-       	      <td>프리미어 리그</td>
-       	      <td>18R</td>
-       	    </tr>
-       	    <tr>
-       	      <td>01.30 (토)</td>
-       	      <td>20:30</td>
-       	      <td>Goodison Park</td>
-       	      <td>에버튼 0 vs 1 노리치</td>
-       	      <td>프리미어 리그</td>
-       	      <td>31R</td>
-       	    </tr>
+       	    <c:forEach var="gameList" items="${gameList}" >
+       	    	<tr>
+					<td>${gameList.matchdate}</td>
+					<td>${gameList.matchtime}</td>
+					<td>${gameList.stadium}</td>
+					<td style="align: center;">
+					   <img src="${gameList.homeimage}" style="width: 40px; height: 40px;"/> ${gameList.homename} ${gameList.homescore} vs ${gameList.awayscore} ${gameList.awayname} <img src="${gameList.awayimage}" style="width: 40px; height: 40px;"/>
+					</td>
+					<td>${gameList.leagueName}</td>
+					<td>${gameList.round}R</td>
+					<td>${gameList.gamestatus}</td>
+       	    	</tr>
+  		  	</c:forEach>
        	  </tbody>
        	</table>
 

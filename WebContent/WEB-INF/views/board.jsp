@@ -157,37 +157,15 @@
        	    </tr>
        	  </thead>
        	  <tbody>
-       	  	<c:forEach var="board" items="${list}">
+       	  	<c:forEach var="board" items="${list}" varStatus="status">
        	  		<tr>
        	  			<td>${board.board_no}</td>
        	  			<td>${board.leagueName}</td>
        	  			<td><a href="#" style="color:darkblue;">${board.title}</a></td>
-       	  			<td></td>
+       	  			<td>${list_name[status.index]}</td>
+       	  			<td>${board.regdate}</td>
+       	  			<td>3</td>
        	  	</c:forEach>
-       	    <tr>
-       	      <td>1</td>
-       	      <td>프리미어리그</td>
-       	      <td><a href="#" style="color:darkblue;">근본론</a></td>
-       	      <td>야누자이</td>
-       	      <td>2021-01-27</td>
-       	      <td>12</td>
-       	    </tr>
-       	    <tr>
-       	      <td>2</td>
-       	      <td>라리가</td>
-       	      <td><a href="#" style="color:darkblue;">손흥민 발롱도르 가능성?!</a></td>
-       	      <td>손까</td>
-       	      <td>2021-01-26</td>
-       	      <td>50</td>
-       	    </tr>
-       	    <tr>
-       	      <td>3</td>
-       	      <td>세리에A</td>
-       	      <td><a href="#" style="color:darkblue;">맨유 브페 원맨쇼 논란?!</a></td>
-       	      <td>최강맨유</td>
-       	      <td>2021-01-25</td>
-       	      <td>30</td>
-       	    </tr>
        	  </tbody>
        	</table>
        	

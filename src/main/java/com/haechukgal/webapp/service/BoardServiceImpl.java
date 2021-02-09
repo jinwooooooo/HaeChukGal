@@ -37,5 +37,11 @@ public class BoardServiceImpl implements BoardService{
 		List<BoardDTO> list=boardDAO.selectByPage(pager);
 		return list;
 	}
+	
+	@Override
+	public String selectNameByNo(int member_no) {
+		String name=boardDAO.selectNameByNo(member_no);
+		return name;
+	}
 
 }

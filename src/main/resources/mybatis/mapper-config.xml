@@ -9,5 +9,6 @@
 		<typeAlias alias="playerInfoDTO" type="com.haechukgal.webapp.dto.PlayerInfoDTO"/>
 		<typeAlias alias="teamInfoDTO" type="com.haechukgal.webapp.dto.TeamInfoDTO"/>
 		<typeAlias alias="boardDTO" type="com.haechukgal.webapp.dto.BoardDTO"/>
+		<typeAlias alias="pagerDTO" type="com.haechukgal.webapp.dto.PagerDTO"/>
 	</typeAliases>
 </configuration>

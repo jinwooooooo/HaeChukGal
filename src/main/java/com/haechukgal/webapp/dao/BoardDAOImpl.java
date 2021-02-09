@@ -37,4 +37,10 @@ public class BoardDAOImpl implements BoardDAO{
 		List<BoardDTO> list=sst.selectList("mybatis.mapper.BoardMapper.selectByPage",pager);
 		return list;
 	}
+	
+	@Override
+	public String selectNameByNo(int member_no) {
+		String name=sst.selectOne("mybatis.mapper.BoardMapper.selectNameByNo",member_no);
+		return name;
+	}
 }

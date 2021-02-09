@@ -4,7 +4,14 @@ public class StarDTO {
 	private int star_no;
 	private int member_no;
 	private String teamname;
+	private String leagueName;
 	
+	public String getLeagueName() {
+		return leagueName;
+	}
+	public void setLeagueName(String leagueName) {
+		this.leagueName = leagueName;
+	}
 	public int getStar_no() {
 		return star_no;
 	}
