@@ -8,4 +8,25 @@
 	<delete id="deleteGameInfo" >
 		delete from GAMEINFORMATION where season = #{g_season} AND leagueName = #{g_leagueName}
 	</delete>
+	<select id="searchLikeTeam" parameterType="String" resultType='String'>
+		select DISTINCT(HOMENAME)
+		FROM GAMEINFORMATION
+		WHERE SEASON='20202021' AND LEAGUENAME=#{leagueName}
+	</select> 
+	<select id="searchMyTeam" parameterType="String" resultType="com.haechukgal.webapp.dto.MyTeamInfoDTO">
+		SELECT *
+		FROM (SELECT b.teamname, b.leaguename
+		      FROM member a, star b
+		      WHERE a.name=#{name} AND b.member_no = a.member_no) a , GAMEINFORMATION B
+		WHERE (b.homename = a.teamname OR a.teamname = b.awayname) AND b.leaguename = a.leaguename AND b.season = '20202021'
+		ORDER BY b.matchdate ASC
+	</select>
+	
+	<select id="searchMyTeamIMG" parameterType="String" resultType="com.haechukgal.webapp.dto.MyTeamInfoDTO">
+		SELECT DiSTINCT b.homename, b.homeimage
+		FROM (SELECT b.teamname, b.leaguename 
+      		  FROM member a, star b 
+      		  WHERE a.name=#{name} AND b.member_no = a.member_no) a , GAMEINFORMATION B 
+		WHERE b.homename = a.teamname AND b.leaguename = a.leaguename AND b.season = '20202021'
+	</select>
 </mapper>

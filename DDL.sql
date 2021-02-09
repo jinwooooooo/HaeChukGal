@@ -93,7 +93,8 @@ CREATE TABLE answer(
 CREATE TABLE star(
     star_no NUMBER not null,
     member_no NUMBER not null,
-    teamname VARCHAR2(1000) not null,
+    teamname VARCHAR2(100) not null,
+    leaguename VARCHAR2(100) not null,
     constraint pk_star primary key(star_no),
     constraint fk_memberNo foreign key(member_no) references member(member_no) on Delete CASCADE
 );

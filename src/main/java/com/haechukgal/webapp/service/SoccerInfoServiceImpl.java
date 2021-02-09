@@ -1,4 +1,6 @@
 package com.haechukgal.webapp.service;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -7,6 +9,7 @@ import com.haechukgal.webapp.dao.GameInfoDAO;
 import com.haechukgal.webapp.dao.PlayerInfoDAO;
 import com.haechukgal.webapp.dao.TeamInfoDAO;
 import com.haechukgal.webapp.dto.GameInfoDTO;
+import com.haechukgal.webapp.dto.MyTeamInfoDTO;
 import com.haechukgal.webapp.dto.PlayerInfoDTO;
 import com.haechukgal.webapp.dto.TeamInfoDTO;
 
@@ -48,6 +51,21 @@ public class SoccerInfoServiceImpl implements SoccerInfoService {
 	public void deleteTeamInfo(TeamInfoDTO teamInfoDTO) {
 		// TODO Auto-generated method stub
 		teamInfoDAO.deleteTeamInfo(teamInfoDTO);
+	}
+	@Override
+	public List<String> searchLikeTeam(String leagueName) {
+		// TODO Auto-generated method stub
+		return gameInfoDAO.searchLikeTeam(leagueName);
+	}
+	@Override
+	public List<MyTeamInfoDTO> searchMyTeam(String name) {
+		// TODO Auto-generated method stub
+		return gameInfoDAO.searchMyTeam(name);
+	}
+	@Override
+	public MyTeamInfoDTO searchMyTeamIMG(String name) {
+		// TODO Auto-generated method stub
+		return gameInfoDAO.searchMyTeamIMG(name);
 	}
 	
 }

@@ -1,6 +1,9 @@
 package com.haechukgal.webapp.service;
 
+import java.util.List;
+
 import com.haechukgal.webapp.dto.GameInfoDTO;
+import com.haechukgal.webapp.dto.MyTeamInfoDTO;
 import com.haechukgal.webapp.dto.PlayerInfoDTO;
 import com.haechukgal.webapp.dto.TeamInfoDTO;
 
@@ -11,4 +14,7 @@ public interface SoccerInfoService {
 	public void deletePlayerInfo(PlayerInfoDTO playerInfoDTO);
 	public void insertTeamInfo(TeamInfoDTO teamInfoDTO);
 	public void deleteTeamInfo(TeamInfoDTO teamInfoDTO);
+	public List<String> searchLikeTeam(String leagueName);
+	public List<MyTeamInfoDTO> searchMyTeam(String name);
+	public MyTeamInfoDTO searchMyTeamIMG(String name);
 }
