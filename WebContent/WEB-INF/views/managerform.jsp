@@ -39,8 +39,7 @@
 </head>
 
 <body>
-
-  <!-- ======= Mobile nav toggle button ======= -->
+    <!-- ======= Mobile nav toggle button ======= -->
   <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
   <!-- ======= Header ======= -->
@@ -78,61 +77,63 @@
 
   </header>
   <!-- End Header -->
-  
   <main id="main">
-    <!-- ======= Login Section ======= -->
-    <section id="contact" class="contact">
+  	<section id="contact" class="contact">
       <div class="container" data-aos="fade-up" style="display:block;">
-        <div class="section-title">
-          <h2>로그인</h2>
-        </div>
-        <div class="row mt-1">
-          <div class="col-lg-8 mt-5 mt-lg-0" style="margin: 0 auto;">
-            <form action="login" method="post" id="loginform" name="loginform" class="join_form" style="margin: 0 auto">
-              <div class="form-group" style="padding-bottom:15px;">
-                <input type="text" class="form-control" name="name" id="name" placeholder="아이디"/>
-                <div class="validate"></div>
-              </div>
-              <div class="form-group" style="padding-bottom:40px;">
-                <input type="text" class="form-control" name="pw" id="pw" placeholder="비밀번호"/>
-                <div class="validate"></div>
-              </div>
-              <div style="text-align:center;">
-       	      <div class="text-center" style="display: inline-block;"><a class="btn btn-lg okBtn" href="javascript:login()">로그인</a></div>
-              <div class="text-center" style="display: inline-block;"><a class="btn btn-lg okBtn" href="joinform">회원가입</a></div>
-              </div>
-            </form>
-          </div>
-        </div>
+        <h2 style="text-align:center;">경기 일정 업데이트</h2><br/>
+		<form method="post" id="gameinfo" name="gameinfo" style="text-align:center;">
+		<table width="800" border="1" style="margin:0 auto;">
+		<tr>
+			<td>시즌</td>
+			<td><input type="text" name="g_season" id="g_season"></td>
+			<td>리그이름</td>
+			<td><input type="text" name="g_leagueName" id="g_leagueName"></td>
+			<td colspan="2">
+				<input type="button" value="등록" id="btn_write_gameInfo" onclick="javascript: form.action='gamewrite';"/>
+				<input type="button" value="삭제" id="btn_delete_gameInfo" onclick="javascript: form.action='gamedelete';"/>
+			</td>
+		</tr>
+		</table>
+		</form>
+		
+		<br/><br/>
+		
+		<h2 style="text-align:center;">선수 순위 업데이트</h2><br/>
+		<form method="post" id="playerinfo" name="playerinfo" style="text-align:center;">
+		<table width="800" border="1" style="margin:0 auto;">
+		<tr>
+			<td>시즌</td>
+			<td><input type="text" name="p_season" id="p_season"></td>
+			<td>리그이름</td>
+			<td><input type="text" name="p_leagueName" id="p_leagueName"></td>
+			<td colspan="2">
+				<input type="button" value="등록" id="btn_write_playerInfo" onclick="javascript: form.action='playerwrite';"/>
+				<input type="button" value="삭제" id="btn_delete_playerInfo" onclick="javascript: form.action='playerdelete';"/>
+			</td>
+		</tr>
+		</table>  
+		</form>
+		
+		<br/><br/>
+		
+		<h2 style="text-align:center;">팀 순위 업데이트</h2><br/>
+		<form method="post" id="teaminfo" name="teaminfo" style="text-align:center;">
+		<table width="800" border="1" style="margin:0 auto;">
+		<tr>
+			<td>시즌</td>
+			<td><input type="text" name="t_season" id="t_season"></td>
+			<td>리그이름</td>
+			<td><input type="text" name="t_leagueName" id="t_leagueName"></td>
+			<td colspan="2">
+				<input type="button" value="등록" id="btn_write_teamInfo" onclick="javascript: form.action='teamwrite';"/>
+				<input type="button" value="삭제" id="btn_delete_teamInfo" onclick="javascript: form.action='teamdelete';"/>
+			</td>
+		</tr>
+		</table>
+		</form>
       </div>
     </section>
-    <!-- End Login Section -->
   </main>
-  
-    <script type="text/javascript">
-		function login() {
-			var name = $("#name").val();
-			var pw = $("#pw").val();
-			
-			$.ajax({
-				url: "<%=application.getContextPath()%>/login",
-				data: {name:name, pw:pw},
-				method:"post",
-				success: function(data) {
-					if(data.result == "success") {
-						location.href = "<%=application.getContextPath()%>/";
-					} else {
-						$("#errorDiv").show();
-					}
-				}
-			});
-		}
-	</script>
-	
-	<div id="errorDiv" class="alert alert-danger" style="margin-top:10px; width:auto; display:none;" role="alert">
-		Invalid ID or Password
-	</div>
-	
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
@@ -166,7 +167,7 @@
   <script src="resources/assets/vendor/typed.js/typed.min.js"></script>
   <script src="resources/assets/vendor/aos/aos.js"></script>
 
-  <!-- Template Main JS File -->
   <script src="resources/assets/js/main.js"></script>
+  <script src="resources/assets/js/manager.js"></script>
 </body>
 </html>

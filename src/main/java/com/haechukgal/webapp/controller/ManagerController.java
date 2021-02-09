@@ -25,14 +25,14 @@ import com.haechukgal.webapp.dto.TeamInfoDTO;
 import com.haechukgal.webapp.service.SoccerInfoService;
 
 @Controller
-public class ManageController {
+public class ManagerController {
 	private final String USER_AGENT = "Mozilla/5.0";
 	
 	@Resource private SoccerInfoService soccerInfoService;
 	
-	@RequestMapping("/manageform")
-	public String manageform() {
-		return "manageform";
+	@RequestMapping("/managerform")
+	public String managerform() {
+		return "managerform";
 	}
 
 	// http://localhost:8080/gamewrite   : POST 방식

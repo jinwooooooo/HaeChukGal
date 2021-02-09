@@ -50,22 +50,28 @@
       <ul>
       	<c:if test="${name == null}">
       		<li><a href="index"><i class="bx bx-home"></i> <span>홈</span></a></li>
-	        <li><a href="loginform"><i class="bx bx-user"></i> <span>로그인</span></a></li>
-	        <li><a href="schedule"><i class="bx bx-book-content"></i> <span>경기 일정</span></a></li>
-	        <li><a href="teamrank"><i class="bx bx-server"></i> <span>팀 순위</span></a></li>
-	        <li><a href="playerrank"><i class="bx bx-envelope"></i> <span>선수 순위</span></a></li>
-	        <li><a href="board"><i class="bx bx-envelope"></i> <span>자유게시판</span></a></li>
+	        <li><a href="loginform"><i class="bx bx-log-in"></i> <span>로그인</span></a></li>
+	        <li><a href="schedule"><i class="bx bx-calendar"></i> <span>경기 일정</span></a></li>
+	        <li><a href="teamrank"><i class="bx bx-trophy"></i> <span>팀 순위</span></a></li>
+	        <li><a href="playerrank"><i class="bx bx-football"></i> <span>선수 순위</span></a></li>
+	        <li><a href="board"><i class="bx bx-clipboard"></i> <span>자유게시판</span></a></li>
       	</c:if>
       	<c:if test="${name != null}">
-      		<li><a href="manageform"><i class="bx bx-home"></i> <span>데이터 관리</span></a></li>
-      		<li><a href="index"><i class="bx bx-home"></i> <span>홈</span></a></li>
-	        <li><a href="logout"><i class="bx bx-user"></i> <span>로그아웃</span></a></li>
-	        <li><a href="myteam"><i class="bx bx-file-blank"></i> <span>응원팀 일정</span></a></li>
-	        <li><a href="schedule"><i class="bx bx-book-content"></i> <span>경기 일정</span></a></li>
-	        <li><a href="teamrank"><i class="bx bx-server"></i> <span>팀 순위</span></a></li>
-	        <li><a href="playerrank"><i class="bx bx-envelope"></i> <span>선수 순위</span></a></li>
-	        <li><a href="board"><i class="bx bx-envelope"></i> <span>자유게시판</span></a></li>
-	        <li><a href="settingform"><i class="bx bx-envelope"></i> <span>개인 설정</span></a></li>
+      		<c:if test="${name == 'manager'}">
+      			<li><a href="index"><i class="bx bx-home"></i> <span>홈</span></a></li>
+      			<li><a href="managerform"><i class="bx bx-data"></i> <span>데이터 관리</span></a></li>
+		        <li><a href="logout"><i class="bx bx-log-out"></i> <span>로그아웃</span></a></li>
+		    </c:if>
+		    <c:if test="${name != 'manager'}">
+		    	<li><a href="index"><i class="bx bx-home"></i> <span>홈</span></a></li>
+		        <li><a href="logout"><i class="bx bx-log-out"></i> <span>로그아웃</span></a></li>
+		        <li><a href="myteam"><i class="bx bx-calendar-check"></i> <span>응원팀 일정</span></a></li>
+		        <li><a href="schedule"><i class="bx bx-calendar"></i> <span>경기 일정</span></a></li>
+		        <li><a href="teamrank"><i class="bx bx-trophy"></i> <span>팀 순위</span></a></li>
+		        <li><a href="playerrank"><i class="bx bx-football"></i> <span>선수 순위</span></a></li>
+		        <li><a href="board"><i class="bx bx-clipboard"></i> <span>자유게시판</span></a></li>
+		        <li><a href="settingform"><i class="bx bx-user"></i> <span>개인 설정</span></a></li>
+		    </c:if>
       	</c:if>
       </ul>
     </nav>
@@ -96,8 +102,18 @@
                 <div class="validate"></div>
               </div>
               <div class="form-group" style="padding-bottom:25px;">
-                <label>응원 팀</label><input type="text" class="form-control" name="teamname" id="teamname" placeholder="Your Favorite Team Name"/>
-                <div class="validate"></div>
+              	<label style="display:block;">응원 팀</label>
+                <select class="form-control" style="width:49%; display:inline;" onchange="categoryChange(this)">
+                	<option>리그 선택</option>
+                	<option value="premier">프리미어리그</option>
+                	<option value="la">라리가</option>
+                	<option value="bundes">분데스리가</option>
+                	<option value="league1">리그앙</option>
+                	<option value="seriea">세리에A</option>
+                </select>
+                <select class="form-control" name="teamname" style="width:49%; display:inline;" id="liketeam">
+                	<option>팀 선택</option>
+                </select>
               </div>
               
               <div style="text-align:center;">
@@ -110,6 +126,33 @@
     </section>
     <!-- End Login Section -->
   </main>
+  
+  <script>
+  	function categoryChange(e){
+  		var liketeam_premier=["맨유","아스날","첼시"];
+  		var liketeam_la=["바르셀로나","레알마드리드","AT마드리드"];
+  		var liketeam_bundes=["도르트문트","뮌헨","라이프치히"];
+  		var liketeam_league1=["파리","리옹","몽펠리에"];
+  		var liketeam_seriea=["인터밀란","AC밀란","유벤투스"];
+  		
+  		var target=document.getElementById("liketeam")
+  		
+  		if(e.value=="premier") var teams=liketeam_premier;
+  		if(e.value=="la") var teams=liketeam_la;
+  		if(e.value=="bundes") var teams=liketeam_bundes;
+  		if(e.value=="league1") var teams=liketeam_league1;
+  		if(e.value=="seriea") var teams=liketeam_seriea;
+  		
+  		target.options.length=0;
+  		
+  		for(x in teams){
+  			var opt=document.createElement("option");
+  			opt.value=teams[x];
+  			opt.innerHTML=teams[x];
+  			target.appendChild(opt);
+  		}
+  	}
+  </script>
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">

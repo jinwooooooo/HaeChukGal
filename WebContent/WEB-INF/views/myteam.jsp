@@ -50,22 +50,28 @@
       <ul>
       	<c:if test="${name == null}">
       		<li><a href="index"><i class="bx bx-home"></i> <span>홈</span></a></li>
-	        <li><a href="loginform"><i class="bx bx-user"></i> <span>로그인</span></a></li>
-	        <li><a href="schedule"><i class="bx bx-book-content"></i> <span>경기 일정</span></a></li>
-	        <li><a href="teamrank"><i class="bx bx-server"></i> <span>팀 순위</span></a></li>
-	        <li><a href="playerrank"><i class="bx bx-envelope"></i> <span>선수 순위</span></a></li>
-	        <li><a href="board"><i class="bx bx-envelope"></i> <span>자유게시판</span></a></li>
+	        <li><a href="loginform"><i class="bx bx-log-in"></i> <span>로그인</span></a></li>
+	        <li><a href="schedule"><i class="bx bx-calendar"></i> <span>경기 일정</span></a></li>
+	        <li><a href="teamrank"><i class="bx bx-trophy"></i> <span>팀 순위</span></a></li>
+	        <li><a href="playerrank"><i class="bx bx-football"></i> <span>선수 순위</span></a></li>
+	        <li><a href="board"><i class="bx bx-clipboard"></i> <span>자유게시판</span></a></li>
       	</c:if>
       	<c:if test="${name != null}">
-      		<li><a href="manageform"><i class="bx bx-home"></i> <span>데이터 관리</span></a></li>
-      		<li><a href="index"><i class="bx bx-home"></i> <span>홈</span></a></li>
-	        <li><a href="logout"><i class="bx bx-user"></i> <span>로그아웃</span></a></li>
-	        <li><a href="myteam"><i class="bx bx-file-blank"></i> <span>응원팀 일정</span></a></li>
-	        <li><a href="schedule"><i class="bx bx-book-content"></i> <span>경기 일정</span></a></li>
-	        <li><a href="teamrank"><i class="bx bx-server"></i> <span>팀 순위</span></a></li>
-	        <li><a href="playerrank"><i class="bx bx-envelope"></i> <span>선수 순위</span></a></li>
-	        <li><a href="board"><i class="bx bx-envelope"></i> <span>자유게시판</span></a></li>
-	        <li><a href="settingform"><i class="bx bx-envelope"></i> <span>개인 설정</span></a></li>
+      		<c:if test="${name == 'manager'}">
+      			<li><a href="index"><i class="bx bx-home"></i> <span>홈</span></a></li>
+      			<li><a href="managerform"><i class="bx bx-data"></i> <span>데이터 관리</span></a></li>
+		        <li><a href="logout"><i class="bx bx-log-out"></i> <span>로그아웃</span></a></li>
+		    </c:if>
+		    <c:if test="${name != 'manager'}">
+		    	<li><a href="index"><i class="bx bx-home"></i> <span>홈</span></a></li>
+		        <li><a href="logout"><i class="bx bx-log-out"></i> <span>로그아웃</span></a></li>
+		        <li><a href="myteam"><i class="bx bx-calendar-check"></i> <span>응원팀 일정</span></a></li>
+		        <li><a href="schedule"><i class="bx bx-calendar"></i> <span>경기 일정</span></a></li>
+		        <li><a href="teamrank"><i class="bx bx-trophy"></i> <span>팀 순위</span></a></li>
+		        <li><a href="playerrank"><i class="bx bx-football"></i> <span>선수 순위</span></a></li>
+		        <li><a href="board"><i class="bx bx-clipboard"></i> <span>자유게시판</span></a></li>
+		        <li><a href="settingform"><i class="bx bx-user"></i> <span>개인 설정</span></a></li>
+		    </c:if>
       	</c:if>
       </ul>
     </nav>
