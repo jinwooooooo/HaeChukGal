@@ -141,7 +141,9 @@
 		  </form>
 		</nav>
 		<br/><br/>
-		<a href="writeform" type="button" class="btn btn-light" style="float:right; text-align:right; padding:.375rem .75rem; border: 1px solid #ced4da; border-radius: .25rem;">글 등록</a>
+		<c:if test="${name != null}">
+			<a href="writeform" type="button" class="btn btn-light" style="float:right; text-align:right; padding:.375rem .75rem; border: 1px solid #ced4da; border-radius: .25rem;">글 등록</a>
+		</c:if>
 		<br/><br/>
 		<table class="table table-striped" style="text-align:center;">
        	  <thead>
@@ -152,10 +154,16 @@
        	      <th>등록자</th>
        	      <th>등록일</th>
        	      <th>조회수</th>
-       	      <th>추천</th>
        	    </tr>
        	  </thead>
        	  <tbody>
+       	  	<c:forEach var="board" items="${list}">
+       	  		<tr>
+       	  			<td>${board.board_no}</td>
+       	  			<td>${board.leagueName}</td>
+       	  			<td><a href="#" style="color:darkblue;">${board.title}</a></td>
+       	  			<td></td>
+       	  	</c:forEach>
        	    <tr>
        	      <td>1</td>
        	      <td>프리미어리그</td>
@@ -163,7 +171,6 @@
        	      <td>야누자이</td>
        	      <td>2021-01-27</td>
        	      <td>12</td>
-       	      <td>50</td>
        	    </tr>
        	    <tr>
        	      <td>2</td>
@@ -172,7 +179,6 @@
        	      <td>손까</td>
        	      <td>2021-01-26</td>
        	      <td>50</td>
-       	      <td>33</td>
        	    </tr>
        	    <tr>
        	      <td>3</td>
@@ -181,7 +187,6 @@
        	      <td>최강맨유</td>
        	      <td>2021-01-25</td>
        	      <td>30</td>
-       	      <td>10</td>
        	    </tr>
        	  </tbody>
        	</table>

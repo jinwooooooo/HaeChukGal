@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mapper.BoardMapper">
+
+	<select id="selectNoByName" parameterType="String" resultType="int">
+		select member_no
+		from member
+		where name=#{name}
+	</select>
+	
+	<insert id="insertBoard">
+		insert into Board(board_no,content,title, regdate, leaguename, member_no, filename)
+		values((select nvl(max(board_no),0)+1 as board_no from BOARD),#{content},#{title},sysdate,#{leagueName},#{member_no}, #{fileName})
+	</insert>
+	
+	<select id="getBoardTotalRows">
+		select *
+		from board
+	</select>
+	
+	<select id="selectByPage" parameterType="pager" resultType="boardDTO">
+		<![CDATA[
+		SELECT *
+		FROM (SELECT rownum as rn, A.*
+			  FROM (SELECT * FROM board ORDER BY board_no DESC) A
+			  WHERE rownum <= #{endRowNo})
+		WHERE rn >= #{startRowNo}
+		]]>
+	</select>
+</mapper>

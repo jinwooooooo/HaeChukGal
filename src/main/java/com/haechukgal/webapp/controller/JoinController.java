@@ -20,6 +20,7 @@ public class JoinController {
 	
 	@RequestMapping("/joinform")
 	public String joinform() {
+		
 		return "joinform";
 	}
 	

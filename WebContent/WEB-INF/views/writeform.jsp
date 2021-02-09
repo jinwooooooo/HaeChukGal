@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
 <head>
   <meta charset="utf-8">
@@ -88,35 +88,36 @@
         </div>
         <div class="row mt-1">
           <div class="col-lg-8 mt-5 mt-lg-0" style="margin: 0 auto;">
-            <form method="post" role="form" class="php-email-form" style="margin: 0 auto">
+            <form role="form" class="join_form" style="margin: 0 auto" enctype="multipart/form-data">
               <div class="form-group" style="padding-bottom:15px;">
-                <label>제목</label><input type="text" class="form-control" name="subject" id="subject" placeholder="제목을 작성해주세요"/>
+                <label>제목</label><input type="text" class="form-control" name="title" id="title" placeholder="제목을 작성해주세요"/>
                 <div class="validate"></div>
               </div>
               <div class="form-group" style="padding-bottom:15px;">
-                <label>내용</label><textarea rows="8" class="form-control" name="subject" id="subject" placeholder="내용을 작성해주세요"></textarea>
+                <label>내용</label><textarea rows="8" class="form-control" name="content" id="content" placeholder="내용을 작성해주세요"></textarea>
                 <div class="validate"></div>
               </div>
               <div class="form-group" style="padding-bottom:20px;">
                 <label>리그</label><br/>
-                <select name="gubun" style="padding:.375rem .75rem; border: 1px solid #ced4da; border-radius: .25rem; margin-right:10px;">
+                <select name="leagueName" id="leagueName" style="padding:.375rem .75rem; border: 1px solid #ced4da; border-radius: .25rem; margin-right:10px;">
 			      <option value="" selected>----- 구분 -----</option>
-			      <option value="writebypremier">프리미어리그</option>
-			      <option value="writebyla">분데스리가</option>
-			      <option value="writebyserie">세리에A</option>
-			      <option value="writebyleague">리그1</option>
-			      <option value="writebychampions">챔피언스리그</option>
-			      <option value="writebyeuropa">유리파리그</option>
-			      <option value="writebyfa">FA컵</option>
+			      <option value="writePremier">프리미어리그</option>
+			      <option value="writeBundes">분데스리가</option>
+			      <option value="writeSerie">세리에A</option>
+			      <option value="writeLeague">리그1</option>
+			      <option value="writeChampions">챔피언스리그</option>
+			      <option value="writeEuropa">유리파리그</option>
+			      <option value="writeFa">FA컵</option>
 				</select>
                 <div class="validate"></div>
               </div>
-              <div class="form-group" style="padding-bottom:20px;">
-                <label>첨부파일</label><br/>
-                <input type="file" id="image" name="image" accept="image/*" onchange="loadFile(event)"/>
+              <div class="form-group" style="padding-bottom:15px;">
+                <label>사진 첨부</label><br/>
+                <input type="file" id="file" name="file"/>
+                <div class="validate"></div>
               </div>
               <div style="text-align:center;">
-       	      <div class="text-center" style="display: inline-block;"><button type="submit">등록</button></div>
+       	      <div class="text-center" style="display: inline-block;"><a type="button" id="GoBoard" href="javascript:write()">등록</a></div>
               </div>
             </form>
           </div>
@@ -125,6 +126,29 @@
     </section>
     <!-- End Login Section -->
   </main>
+  
+  <script>
+  	function write(){
+  		var formdata=new FormData();
+  		formdata.append("title", $("#title").val());
+  		formdata.append("content", $("#content").val());
+  		formdata.append("leagueName", $("#leagueName").val());
+  		formdata.append("fileName", $("#file")[0].files[0], $("#file")[0].files[0].name);
+  		
+  		$.ajax({
+  			url:"write",
+  			processData: false,
+			contentType: false,
+			data: formdata,
+			method: "post",
+			success:function(data){
+				$("#GoBoard").attr("href", "board");
+				$("#GoBoard").get(0).click();
+				$("#GoBoard").attr("href", "javascript:write()");
+			}
+  		});
+  	}
+  </script>
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">

@@ -15,7 +15,6 @@ CREATE TABLE board(
     title VARCHAR2(100) not null,
     regdate date default sysdate,
     fileName VARCHAR2(50),
-    fileDir VARCHAR2(3000),
     leagueName VARCHAR2(20) not null,
     member_no NUMBER,
     constraint pk_board primary key(board_no),
