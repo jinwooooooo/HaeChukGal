@@ -15,7 +15,7 @@ CREATE TABLE board(
     title VARCHAR2(100) not null,
     regdate date default sysdate,
     fileName VARCHAR2(50),
-    leagueName VARCHAR2(20) not null,
+    leagueName VARCHAR2(2000) not null,
     member_no NUMBER,
     constraint pk_board primary key(board_no),
     constraint fk_member foreign key(member_no) references member(member_no) on Delete CASCADE
@@ -41,31 +41,31 @@ CREATE TABLE teamrank (
 
 CREATE TABLE player (
     player_no number not null,
-    game NUMBER(20) not null,
-    score NUMBER(20) not null,
-    playername VARCHAR2(2000) not null,
-    assist NUMBER(20) not null,
-    attackpoint Number(38) not null,
-    shoot NUMBER(38) not null,
-    shootontarget NUMBER(38) not null,
-    foul NUMBER(38) not null,
-    yellowcard NUMBER(20) not null,
-    redcard NUMBER(20) not null,
-    offside NUMBER(20) not null,
-    teamname VARCHAR2(2000) not null,
+    game NUMBER(20),
+    score NUMBER(20),
+    playername VARCHAR2(2000),
+    assist NUMBER(20),
+    attackpoint Number(38),
+    shoot NUMBER(38),
+    shootontarget NUMBER(38),
+    foul NUMBER(38),
+    yellowcard NUMBER(20),
+    redcard NUMBER(20),
+    offside NUMBER(20),
+    teamname VARCHAR2(2000) ,
     playerimage VARCHAR2(2000),
-    leaguename VARCHAR2(2000) not null,
-    rank NUMBER(20) not null,
-    season VARCHAR2(2000) not null,
+    leaguename VARCHAR2(2000),
+    rank NUMBER(20),
+    season VARCHAR2(2000),
     constraint pk_player primary key(player_no)
 );
 CREATE TABLE gameinformation(
     game_no number not null,
-    leaguename VARCHAR2(100),
-    homename VARCHAR2(100),
+    leaguename VARCHAR2(2000),
+    homename VARCHAR2(2000),
     homescore VARCHAR2(100),
     homeimage VARCHAR2(2000),
-    awayname VARCHAR2(100),
+    awayname VARCHAR2(2000),
     awayscore VARCHAR2(100),
     awayimage VARCHAR2(2000),
     round VARCHAR2(100),
@@ -73,7 +73,7 @@ CREATE TABLE gameinformation(
     matchdate VARCHAR2(200),
     homewin VARCHAR2(100),
     awaywin VARCHAR2(100),
-    season VARCHAR2(100),
+    season VARCHAR2(2000),
     matchtime VARCHAR2(100),
     gamestatus VARCHAR2(100), 
     constraint pk_gameinformation primary key(game_no)
@@ -92,10 +92,8 @@ CREATE TABLE answer(
 CREATE TABLE star(
     star_no NUMBER not null,
     member_no NUMBER not null,
-    teamname VARCHAR2(100) not null,
-    leaguename VARCHAR2(100) not null,
+    teamname VARCHAR2(2000) not null,
+    leaguename VARCHAR2(2000) not null,
     constraint pk_star primary key(star_no),
     constraint fk_memberNo foreign key(member_no) references member(member_no) on Delete CASCADE
 );
-
-create sequence seq_teamrank;

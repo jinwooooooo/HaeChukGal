@@ -67,5 +67,10 @@ public class SoccerInfoServiceImpl implements SoccerInfoService {
 		// TODO Auto-generated method stub
 		return gameInfoDAO.searchMyTeamIMG(name);
 	}
+	@Override
+	public List<PlayerInfoDTO> searchPlayerRank(PlayerInfoDTO playerInfoDTO) {
+		// TODO Auto-generated method stub
+		return playerInfoDAO.searchPlayerRank(playerInfoDTO);
+	}
 	
 }

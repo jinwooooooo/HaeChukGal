@@ -96,7 +96,7 @@ public class ManagerController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "redirect:/";
+		return "redirect:/managerform";
 	}
 	
 	// http://localhost:8080/playerwrite   : POST 방식
@@ -144,7 +144,7 @@ public class ManagerController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "redirect:/";
+		return "redirect:/managerform";
 	}
 	
 	// http://localhost:8080/teamwrite   : POST 방식	
@@ -184,7 +184,7 @@ public class ManagerController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "redirect:/";
+		return "redirect:/managerform";
 	}
 	
 	// http://localhost:8080/gamedlete   : POST 방식
@@ -193,7 +193,7 @@ public class ManagerController {
 		System.out.println("season=" + gameInfoDTO.getG_season());
 		System.out.println("leagueName=" + gameInfoDTO.getG_leagueName());
 		soccerInfoService.deleteGameInfo(gameInfoDTO);
-		return "redirect:/";		// response.sendRedirect()를 처리해준다!
+		return "redirect:/managerform";		// response.sendRedirect()를 처리해준다!
 	}
 	
 	// http://localhost:8080/playerdelete   : POST 방식
@@ -202,7 +202,7 @@ public class ManagerController {
 		System.out.println("season=" + playerInfoDTO.getP_season());
 		System.out.println("leagueName=" + playerInfoDTO.getP_leagueName());
 		soccerInfoService.deletePlayerInfo(playerInfoDTO);
-		return "redirect:/";		// response.sendRedirect()를 처리해준다!
+		return "redirect:/managerform";		// response.sendRedirect()를 처리해준다!
 	}
 		
 	// http://localhost:8080/teamdelete   : POST 방식
@@ -211,7 +211,7 @@ public class ManagerController {
 		System.out.println("season=" + teamInfoDTO.getT_season());
 		System.out.println("leagueName=" + teamInfoDTO.getT_leagueName());
 		soccerInfoService.deleteTeamInfo(teamInfoDTO);;
-		return "redirect:/";		// response.sendRedirect()를 처리해준다!
+		return "redirect:/managerform";		// response.sendRedirect()를 처리해준다!
 	}
 
 	

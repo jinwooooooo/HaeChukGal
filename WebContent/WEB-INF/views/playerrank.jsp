@@ -81,7 +81,7 @@
   
   <c:set var="startYear" value="2020"/>
   <c:set var="endYear" value="2021"/>
-  <c:set var="choiceLeague" value="premier"/>
+  <c:set var="choiceLeague" value="epl"/>
   
   <main id="main">
     <!-- ======= Resume Section ======= -->
@@ -112,17 +112,17 @@
 	          <div class="col-lg-12 d-flex justify-content-center" data-aos-delay="100">
 	            <ul id="portfolio-flters">
 	              <li id="3" class='filter-active' style="font-size:17px;">
-	              	<a href="javascript:playerlist(${startYear},${endYear},'premier','3')">
+	              	<a href="javascript:playerlist(${startYear},${endYear},'epl','3')">
 	                  <span>프리미어리그</span>
 	              	</a>
 	              </li>
 	              <li id="4" class="league" style="font-size:17px;">
-	              	<a href="javascript:playerlist(${startYear},${endYear},'la','4')">
+	              	<a href="javascript:playerlist(${startYear},${endYear},'primera','4')">
 	                  <span>라리가</span>
 	              	</a>
 	              </li>
 	              <li id="5" class="league" style="font-size:17px;">
-	              	<a href="javascript:playerlist(${startYear},${endYear},'bundes','5')">
+	              	<a href="javascript:playerlist(${startYear},${endYear},'bundesliga','5')">
 	                  <span>분데스리가</span>
 	              	</a>
 	              </li >
@@ -132,7 +132,7 @@
 	              	</a>
 	              </li>
 	              <li id="7" class="league" style="font-size:17px;">
-	              	<a href="javascript:playerlist(${startYear},${endYear},'league1','7')">
+	              	<a href="javascript:playerlist(${startYear},${endYear},'ligue1','7')">
 	                  <span>리그1</span>
 	              	</a>
 	              </li>
@@ -158,48 +158,22 @@
 	       	    </tr>
 	       	  </thead>
 	       	  <tbody>
-	       	    <tr>
-	       	      <td>1</td>
-	       	      <td>살라</td>
-	       	      <td>리버풀</td>
-	       	      <td>18</td>
-	       	      <td>13</td>
-	       	      <td>3</td>
-	       	      <td>16</td>
-	       	      <td>58</td>
-	       	      <td>28</td>
-	       	      <td>11</td>
-	       	      <td>1</td>
-	       	      <td>0</td>
+	       	  <c:forEach var="playerRank" items="${playerRank}" >
+	       	  	<tr>
+	       	      <td>${playerRank.rank}</td>
+	       	      <td>${playerRank.playerName} </td>
+	       	      <td>${playerRank.teamName}</td>
+	       	      <td>${playerRank.game}</td>
+	       	      <td>${playerRank.score}</td>
+	       	      <td>${playerRank.assist}</td>
+	       	      <td>${playerRank.attackPoint}</td>
+	       	      <td>${playerRank.shoot}</td>
+	       	      <td>${playerRank.shootOnTarget}</td>
+	       	      <td>${playerRank.foul}</td>
+	       	      <td>${playerRank.yellowCard}</td>
+	       	      <td>${playerRank.redCard}</td>
 	       	    </tr>
-	       	    <tr>
-	       	      <td>2</td>
-	       	      <td>해리 케인</td>
-	       	      <td>토트넘</td>
-	       	      <td>18</td>
-	       	      <td>12</td>
-	       	      <td>3</td>
-	       	      <td>15</td>
-	       	      <td>66</td>
-	       	      <td>19</td>
-	       	      <td>8</td>
-	       	      <td>0</td>
-	       	      <td>0</td>
-	       	    </tr>
-	       	    <tr>
-	       	      <td>3</td>
-	       	      <td>칼버트 르윈</td>
-	       	      <td>에버턴</td>
-	       	      <td>18</td>
-	       	      <td>10</td>
-	       	      <td>2</td>
-	       	      <td>12</td>
-	       	      <td>55</td>
-	       	      <td>22</td>
-	       	      <td>10</td>
-	       	      <td>1</td>
-	       	      <td>0</td>
-	       	    </tr>
+	       	  </c:forEach>  
 	       	  </tbody>
 	       	</table>
        	 </div>
@@ -214,11 +188,12 @@
   		console.log(endYear);
   		console.log(choiceLeague);
   		
-	    if(no=='3'||no=='4'||no=='5'||no=='6'||no=='7'){
-	    	$("#portfolio-flters li").removeClass('filter-active');
-	    	var no='#portfolio-flters #'+no
-	    	$(no).addClass('filter-active');
-	    }
+
+  		if(no=='3'||no=='4'||no=='5'||no=='6'||no=='7'){
+ 			 $("#portfolio-flters li").removeClass('filter-active');
+ 			 var no='#portfolio-flters #'+no;
+ 			 $(no).addClass('filter-active'); 
+ 		}
 	    
 	    $.ajax({
   			url:"playerlist",

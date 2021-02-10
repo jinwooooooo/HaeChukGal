@@ -1,24 +1,44 @@
 package com.haechukgal.webapp.controller;
 
+import java.nio.file.spi.FileSystemProvider;
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.haechukgal.webapp.dto.MyTeamInfoDTO;
+import com.haechukgal.webapp.dto.PlayerInfoDTO;
+import com.haechukgal.webapp.service.SoccerInfoService;
+
 @Controller
 public class PlayerRankController {
+	@Resource private SoccerInfoService soccerInfoService;
 	
 	@RequestMapping("/playerrank")
-	public String playerrank() {
-		
+	public String playerrank(Model model) {
+		PlayerInfoDTO playerInfoDTO = new PlayerInfoDTO();
+		playerInfoDTO.setP_leagueName("epl");
+		playerInfoDTO.setP_season("20202021");
+		List<PlayerInfoDTO> playerRank = soccerInfoService.searchPlayerRank(playerInfoDTO);
+		model.addAttribute("playerRank", playerRank);
 		return "playerrank";
 	}
 	
 	@RequestMapping("playerlist")
 	public String playerlist(int startYear, int endYear, String choiceLeague, Model model) {
-		System.out.println(startYear);
-		System.out.println(endYear);
-		System.out.println(choiceLeague);
-		
+//		System.out.println(startYear);
+//		System.out.println(endYear);
+//		System.out.println(choiceLeague);
+		String season = Integer.toString(startYear)+Integer.toString(endYear);
+		PlayerInfoDTO playerInfoDTO = new PlayerInfoDTO();
+		playerInfoDTO.setP_leagueName(choiceLeague);
+		playerInfoDTO.setP_season(season);
+		List<PlayerInfoDTO> playerRank = soccerInfoService.searchPlayerRank(playerInfoDTO);
+
+		model.addAttribute("playerRank", playerRank);
 		model.addAttribute("startYear",startYear);
 		model.addAttribute("endYear",endYear);
 		model.addAttribute("choiceLeague",choiceLeague);
