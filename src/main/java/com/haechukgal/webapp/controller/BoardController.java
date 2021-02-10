@@ -85,4 +85,25 @@ public class BoardController {
 			}
 		}
 	}
+	
+	@RequestMapping("/boardlist")
+	public String boardlist(@RequestParam(defaultValue="1") int pageNo, Model model) {
+		
+		int totalRows=boardService.getBoardTotalRows();
+		PagerDTO pager=new PagerDTO(5,5,totalRows,pageNo); //한 페이지에 글 수, 한 그룹에 페이지 수
+		List<BoardDTO> list=boardService.getBoardList(pager);
+		
+		model.addAttribute("list",list);
+		model.addAttribute("pager",pager);
+		
+		List<String> list_name=new ArrayList<String>();
+		for(BoardDTO boardDTO : list)
+		{
+			list_name.add(boardService.selectNameByNo(boardDTO.getMember_no()));
+		}
+		
+		model.addAttribute("list_name",list_name);
+		
+		return "boardlist";
+	}
 }
