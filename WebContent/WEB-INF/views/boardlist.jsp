@@ -17,7 +17,7 @@
 			<tr>
 				<td>${board.board_no}</td>
 				<td>${board.leagueName}</td>
-				<td><a href="#" style="color: darkblue;">${board.title}</a></td>
+				<td><a href="javascript:boardRead(${board.board_no})" style="color: darkblue;">${board.title}</a></td>
 				<td>${list_name[status.index]}</td>
 				<td>${board.regdate}</td>
 				<td>3</td>
