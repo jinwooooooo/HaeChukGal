@@ -90,7 +90,27 @@
           <p>나의 응원 팀 (${myteaminfo.homename})</p><br/>
           <p><img src="${myteaminfo.homeimage}" style="width: 100px; height: 100px;"/></p>
         </div>
-
+       	
+       	<div style="text-align:right;">
+	        <svg xmlns="http://www.w3.org/2000/svg" style="color:#2E2EFE;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+			<circle cx="8" cy="8" r="8"/>
+			</svg>
+	        <span> : 경기 종료　</span>
+	        <svg xmlns="http://www.w3.org/2000/svg" style="color:#04B404;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+			<circle cx="8" cy="8" r="8"/>
+			</svg>
+	        <span> : 경기 전　　</span>
+	        <pre></pre>
+	        <svg xmlns="http://www.w3.org/2000/svg" style="color:#FF0000;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+			<circle cx="8" cy="8" r="8"/>
+			</svg>
+	        <span> : 경기 취소　</span>
+	        <svg xmlns="http://www.w3.org/2000/svg" style="color:black;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+			<circle cx="8" cy="8" r="8"/>
+			</svg>
+	        <span> : 경기 연기　</span>
+	    </div>
+        <br/>
        	<table class="table table-striped" style="text-align:center;">
        	  <thead>
        	    <tr>
@@ -105,7 +125,7 @@
        	  </thead>
        	  <tbody>
        	    <c:forEach var="gameList" items="${gameList}" >
-       	    	<tr>
+       	    	<tr style="vertical-align:center;">
 					<td>${gameList.matchdate}</td>
 					<td>${gameList.matchtime}</td>
 					<td>${gameList.stadium}</td>
@@ -114,7 +134,34 @@
 					</td>
 					<td>${gameList.leagueName}</td>
 					<td>${gameList.round}R</td>
-					<td>${gameList.gamestatus}</td>
+					<c:if test="${gameList.gamestatus=='종료'}">
+						<td>
+							<svg xmlns="http://www.w3.org/2000/svg" style="color:#2E2EFE;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+	  						<circle cx="8" cy="8" r="8"/>
+							</svg>
+						</td>
+					</c:if>
+					<c:if test="${gameList.gamestatus=='경기전'}">
+						<td>
+							<svg xmlns="http://www.w3.org/2000/svg" style="color:#04B404;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+	  						<circle cx="8" cy="8" r="8"/>
+							</svg>
+						</td>
+					</c:if>
+					<c:if test="${gameList.gamestatus=='경기취소'}">
+						<td>
+							<svg xmlns="http://www.w3.org/2000/svg" style="color:#FF0000;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+	  						<circle cx="8" cy="8" r="8"/>
+							</svg>
+						</td>
+					</c:if>
+					<c:if test="${gameList.gamestatus=='연기'}">
+						<td>
+							<svg xmlns="http://www.w3.org/2000/svg" style="color:black;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+	  						<circle cx="8" cy="8" r="8"/>
+							</svg>
+						</td>
+					</c:if>
        	    	</tr>
   		  	</c:forEach>
        	  </tbody>

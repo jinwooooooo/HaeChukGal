@@ -101,13 +101,14 @@
                 <label>리그</label><br/>
                 <select name="leagueName" id="leagueName" style="padding:.375rem .75rem; border: 1px solid #ced4da; border-radius: .25rem; margin-right:10px;">
 			      <option value="" selected>----- 구분 -----</option>
-			      <option value="writePremier">프리미어리그</option>
-			      <option value="writeBundes">분데스리가</option>
-			      <option value="writeSerie">세리에A</option>
-			      <option value="writeLeague">리그1</option>
-			      <option value="writeChampions">챔피언스리그</option>
-			      <option value="writeEuropa">유리파리그</option>
-			      <option value="writeFa">FA컵</option>
+			      <option value="프리미어리그">프리미어리그</option>
+			      <option value="분데스리가">분데스리가</option>
+			      <option value="세리에A">세리에A</option>
+			      <option value="라리가">라리가</option>
+			      <option value="리그1">리그1</option>
+			      <option value="챔피언스리그">챔피언스리그</option>
+			      <option value="유로파리그">유리파리그</option>
+			      <option value="FA컵">FA컵</option>
 				</select>
                 <div class="validate"></div>
               </div>

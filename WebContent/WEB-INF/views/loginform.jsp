@@ -129,7 +129,7 @@
 		}
 	</script>
 	
-	<div id="errorDiv" class="alert alert-danger" style="margin-top:10px; width:auto; display:none;" role="alert">
+	<div id="errorDiv" class="alert alert-danger" style="margin:0px 44% 30px; width:20%; display:none; text-align:center;" role="alert">
 		Invalid ID or Password
 	</div>
 	
