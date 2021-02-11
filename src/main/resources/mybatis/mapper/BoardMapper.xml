@@ -9,8 +9,8 @@
 	</select>
 	
 	<insert id="insertBoard">
-		insert into Board(board_no,content,title, regdate, leaguename, member_no, filename)
-		values((select nvl(max(board_no),0)+1 as board_no from BOARD),#{content},#{title},sysdate,#{leagueName},#{member_no}, #{fileName})
+		insert into Board(board_no,content,title, regdate, leaguename, member_no, filename, hitcount)
+		values((select nvl(max(board_no),0)+1 as board_no from BOARD),#{content},#{title},sysdate,#{leagueName},#{member_no}, #{fileName}, #{hitcount})
 	</insert>
 	
 	<select id="getBoardTotalRows" resultType="int">
@@ -33,4 +33,27 @@
 		from member
 		where member_no=#{member_no}
 	</select>
+	
+	<select id="selectByboardNo" parameterType="Integer" resultType="boardDTO">
+		select *
+		from board
+		where board_no=#{boardNo}
+	</select>
+	
+	<update id="updateBoard" parameterType="boardDTO">
+		update board
+		set title=#{title}, content=#{content}, fileName=#{fileName}, leagueName=#{leagueName}
+		where board_no=#{board_no}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="Integer">
+		delete from board
+		where board_no=#{boardNo}
+	</delete>
+	
+	<update id="updateHitcount" parameterType="Integer">
+		update board
+		set hitcount=hitcount+1
+		where board_no=#{boardNo}
+	</update>
 </mapper>

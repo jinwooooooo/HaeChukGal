@@ -43,5 +43,26 @@ public class BoardServiceImpl implements BoardService{
 		String name=boardDAO.selectNameByNo(member_no);
 		return name;
 	}
+	
+	@Override
+	public BoardDTO getBoardDTO(int boardNo) {
+		BoardDTO boardDTO=boardDAO.selectByboardNo(boardNo);
+		return boardDTO;
+	}
+	
+	@Override
+	public void updateBoardDTO(BoardDTO boardDTO) {
+		boardDAO.updateBoardDTO(boardDTO);
+	}
+	
+	@Override
+	public void deleteBoardDTO(int boardNo) {
+		boardDAO.deleteBoardDTO(boardNo);
+	}
+	
+	@Override
+	public void updateHitcount(int boardNo) {
+		boardDAO.updateHitcount(boardNo);
+	}
 
 }

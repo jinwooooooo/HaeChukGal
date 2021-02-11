@@ -142,10 +142,10 @@
 		</nav>
 		<br/><br/>
 		<c:if test="${name != null}">
-			<a href="writeform" type="button" class="btn btn-light" style="float:right; text-align:right; padding:.375rem .75rem; border: 1px solid #ced4da; border-radius: .25rem;">글 등록</a>
+			<a href="javascript:writeform()" type="button" class="btn btn-light" style="float:right; text-align:right; padding:.375rem .75rem; border: 1px solid #ced4da; border-radius: .25rem;">글 등록</a>
 		</c:if>
 		<br/><br/>
-	  <form id="boardlist">
+	  <form id="boardlisthtml">
 		  <table class="table table-striped" style="text-align:center;">
        	    <thead>
        	      <tr>
@@ -165,7 +165,7 @@
        	  		  <td><a href="javascript:boardRead(${board.board_no})" style="color:darkblue;">${board.title}</a></td>
        			  <td>${list_name[status.index]}</td>
        	  		  <td>${board.regdate}</td>
-       	  		  <td>3</td>
+       	  		  <td>${board.hitcount}</td>
        	  	  </c:forEach>
 	       	  <tr>
 	            <td colspan="6" style="text-align:center;">
@@ -207,8 +207,7 @@
   			url:"boardlist",
   			data:{pageNo:pageNo},
   			success:function(data){
-  				console.log(data);
-  				$("#boardlist").html(data);
+  				$("#boardlisthtml").html(data);
   			}
   		});
   	}
@@ -218,9 +217,90 @@
   			url:"boardread",
   			data:{boardNo:boardNo},
   			success:function(data){
-  				
+  				$("#main").html(data);
   			}
-  		})
+  		});
+  	}
+  	function writeform(){
+  		$.ajax({
+  			url:"writeform",
+  			success:function(data){
+  				$("#main").html(data);
+  			}
+  		});
+  	}
+  	function write(){
+  		var formdata=new FormData();
+  		formdata.append("title", $("#title").val());
+  		formdata.append("content", $("#content").val());
+  		formdata.append("leagueName", $("#leagueName").val());
+  		formdata.append("fileName", $("#file")[0].files[0], $("#file")[0].files[0].name);
+  		
+  		$.ajax({
+  			url:"write",
+  			processData: false,
+			contentType: false,
+			data: formdata,
+			method: "post",
+			success:function(data){
+				$.ajax({
+					url:"boardfulllist",
+					success:function(data){
+						$("#main").html(data);
+					}
+				});
+			}
+  		});
+  	}
+  	
+  	function boardupdateform(boardNo){
+  		$.ajax({
+  			url:"boardupdateform",
+  			data:{boardNo:boardNo},
+  			success:function(data){
+  				$("#main").html(data);
+  			}
+  		});
+  	}
+  	
+  	function boarddelete(boardNo){
+  		$.ajax({
+  			url:"boarddelete",
+  			data:{boardNo:boardNo},
+  			success:function(data){
+  				$.ajax({
+					url:"boardfulllist",
+					success:function(data){
+						$("#main").html(data);
+					}
+				});
+  			}
+  		});
+  	}
+  	
+  	function boardupdate(){
+  		var formdata=new FormData();
+  		formdata.append("board_no",$("#board_no").val());
+  		formdata.append("title", $("#title").val());
+  		formdata.append("content", $("#content").val());
+  		formdata.append("leagueName", $("#leagueName").val());
+  		formdata.append("fileName", $("#file")[0].files[0], $("#file")[0].files[0].name);
+  		
+  		$.ajax({
+  			url:"boardupdate",
+  			processData: false,
+			contentType: false,
+			data: formdata,
+			method: "post",
+			success:function(data){
+				$.ajax({
+					url:"boardfulllist",
+					success:function(data){
+						$("#main").html(data);
+					}
+				});
+			}
+  		});
   	}
   </script>
   <!-- ======= Footer ======= -->

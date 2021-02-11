@@ -112,8 +112,7 @@
                 </select>
               </div>
               <div style="text-align:center;">
-       	      <div class="text-center" style="display: inline-block;"><button type="submit">로그인</button></div>
-              <div class="text-center" style="display: inline-block;"><a href="joinform">회원가입</a></div>
+       	      <div class="text-center" style="display: inline-block;"><button type="submit">수정</button></div>
               </div>
             </form>
           </div>

@@ -9,12 +9,13 @@
      <div class="row mt-1">
        <div class="col-lg-8 mt-5 mt-lg-0" style="margin: 0 auto;">
          <form role="form" class="join_form" style="margin: 0 auto" enctype="multipart/form-data">
+           <input type="hidden" id="board_no" value="${board.board_no}"/>
            <div class="form-group" style="padding-bottom:15px;">
-             <label>제목</label><input type="text" class="form-control" name="title" id="title" placeholder="제목을 작성해주세요"/>
+             <label>제목</label><input type="text" class="form-control" name="title" id="title" value="${board.title}"/>
              <div class="validate"></div>
            </div>
            <div class="form-group" style="padding-bottom:15px;">
-             <label>내용</label><textarea rows="8" class="form-control" name="content" id="content" placeholder="내용을 작성해주세요"></textarea>
+             <label>내용</label><textarea rows="8" class="form-control" name="content" id="content">${board.content}</textarea>
              <div class="validate"></div>
            </div>
            <div class="form-group" style="padding-bottom:20px;">
@@ -38,7 +39,7 @@
              <div class="validate"></div>
            </div>
            <div style="text-align:center;">
-    	      <div class="text-center" style="display: inline-block;"><a type="button" id="GoBoard" href="javascript:write()">등록</a></div>
+    	      <div class="text-center" style="display: inline-block;"><a type="button" id="GoBoardFromUpdateform" href="javascript:boardupdate()">수정</a></div>
            </div>
          </form>
        </div>

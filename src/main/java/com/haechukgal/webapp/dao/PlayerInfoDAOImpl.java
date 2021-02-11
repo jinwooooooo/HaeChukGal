@@ -1,4 +1,6 @@
 package com.haechukgal.webapp.dao;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -20,6 +22,12 @@ public class PlayerInfoDAOImpl implements PlayerInfoDAO {
 	public void deletePlayerInfo(PlayerInfoDTO playerInfoDTO) {
 		// TODO Auto-generated method stub
 		sst.insert("mybatis.mapper.PlayerInfoMapper.deletePlayerInfo",playerInfoDTO);
+	}
+
+	@Override
+	public List<PlayerInfoDTO> searchPlayerRank(PlayerInfoDTO playerInfoDTO) {
+		// TODO Auto-generated method stub
+		return sst.selectList("mybatis.mapper.PlayerInfoMapper.searchPlayerRank", playerInfoDTO);
 	}
 
 }

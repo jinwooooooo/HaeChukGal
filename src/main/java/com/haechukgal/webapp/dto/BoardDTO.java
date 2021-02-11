@@ -8,7 +8,14 @@ public class BoardDTO {
 	private String regdate;
 	private String leagueName;
 	private int member_no;
+	private int hitcount;
 	
+	public int getHitcount() {
+		return hitcount;
+	}
+	public void setHitcount(int hitcount) {
+		this.hitcount = hitcount;
+	}
 	public String getFileName() {
 		return fileName;
 	}

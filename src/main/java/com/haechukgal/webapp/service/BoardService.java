@@ -11,4 +11,8 @@ public interface BoardService {
 	public int getBoardTotalRows();
 	public List<BoardDTO> getBoardList(PagerDTO pager);
 	public String selectNameByNo(int member_no);
+	public BoardDTO getBoardDTO(int boardNo);
+	public void updateBoardDTO(BoardDTO boardDTO);
+	public void deleteBoardDTO(int boardNo);
+	public void updateHitcount(int boardNo);
 }

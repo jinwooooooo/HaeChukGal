@@ -43,4 +43,25 @@ public class BoardDAOImpl implements BoardDAO{
 		String name=sst.selectOne("mybatis.mapper.BoardMapper.selectNameByNo",member_no);
 		return name;
 	}
+	
+	@Override
+	public BoardDTO selectByboardNo(int boardNo) {
+		BoardDTO boardDTO=sst.selectOne("mybatis.mapper.BoardMapper.selectByboardNo",boardNo);
+		return boardDTO;
+	}
+	
+	@Override
+	public void updateBoardDTO(BoardDTO boardDTO) {
+		sst.update("mybatis.mapper.BoardMapper.updateBoard",boardDTO);
+	}
+	
+	@Override
+	public void deleteBoardDTO(int boardNo) {
+		sst.delete("mybatis.mapper.BoardMapper.deleteBoard",boardNo);
+	}
+	
+	@Override
+	public void updateHitcount(int boardNo) {
+		sst.update("mybatis.mapper.BoardMapper.updateHitcount", boardNo);
+	}
 }
