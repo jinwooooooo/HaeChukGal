@@ -12,8 +12,6 @@ import com.haechukgal.webapp.dto.PlayerInfoDTO;
 import com.haechukgal.webapp.dto.TeamInfoDTO;
 import com.haechukgal.webapp.service.SoccerInfoService;
 
-import jdk.internal.org.jline.utils.Log;
-
 @Controller
 public class TeamRankController {
 	@Resource private SoccerInfoService soccerInfoService;

@@ -302,6 +302,11 @@
 			}
   		});
   	}
+  	
+  	var loadFile = function(event) {
+		var output = document.getElementById('viewimg');
+		output.src = URL.createObjectURL(event.target.files[0]);
+	};
   </script>
   <!-- ======= Footer ======= -->
   <footer id="footer">

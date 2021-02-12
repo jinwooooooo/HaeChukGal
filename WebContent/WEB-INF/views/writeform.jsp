@@ -34,7 +34,11 @@
            </div>
            <div class="form-group" style="padding-bottom:15px;">
              <label>사진 첨부</label><br/>
-             <input type="file" id="file" name="file"/>
+             <input type="file" id="file" name="file" onchange="loadFile(event)"/>
+             <div class="validate"></div>
+           </div>
+           <div class="form-group" style="padding-bottom:15px;">
+             <img class="img-fluid" id="viewimg" src=""/>
              <div class="validate"></div>
            </div>
            <div style="text-align:center;">
