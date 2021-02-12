@@ -18,4 +18,5 @@ public interface SoccerInfoService {
 	public List<MyTeamInfoDTO> searchMyTeam(String name);
 	public MyTeamInfoDTO searchMyTeamIMG(String name);
 	public List<PlayerInfoDTO> searchPlayerRank(PlayerInfoDTO playerInfoDTO);
+	public List<TeamInfoDTO> searchTeamRank(TeamInfoDTO teamInfoDTO);
 }

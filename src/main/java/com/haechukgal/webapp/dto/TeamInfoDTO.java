@@ -2,6 +2,7 @@ package com.haechukgal.webapp.dto;
 
 public class TeamInfoDTO {
 
+	private long team_no;
 	public long getTeam_no() {
 		return team_no;
 	}
@@ -15,16 +16,16 @@ public class TeamInfoDTO {
 		this.rank = rank;
 	}
 	public String getTeamName() {
-		return TeamName;
+		return teamName;
 	}
 	public void setTeamName(String teamName) {
-		TeamName = teamName;
+		this.teamName = teamName;
 	}
 	public String getTeamImage() {
-		return TeamImage;
+		return teamImage;
 	}
 	public void setTeamImage(String teamImage) {
-		TeamImage = teamImage;
+		this.teamImage = teamImage;
 	}
 	public int getGame() {
 		return game;
@@ -86,10 +87,9 @@ public class TeamInfoDTO {
 	public void setT_leagueName(String t_leagueName) {
 		this.t_leagueName = t_leagueName;
 	}
-	private long team_no;
 	private int rank;
-	private String TeamName;
-	private String TeamImage;
+	private String teamName;
+	private String teamImage;
 	private int game;		// 경기
 	private int win;		// 승리
 	private int draw; 		// 무승부 

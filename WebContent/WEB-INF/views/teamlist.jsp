@@ -65,41 +65,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>맨유</td>
-      <td>19</td>
-      <td>11</td>
-      <td>6</td>
-      <td>2</td>
-      <td>31</td>
-      <td>23</td>
-      <td>8</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>레스터시티</td>
-      <td>18</td>
-      <td>11</td>
-      <td>5</td>
-      <td>2</td>
-      <td>29</td>
-      <td>22</td>
-      <td>7</td>
-      <td>28</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>웨스트햄</td>
-      <td>19</td>
-      <td>10</td>
-      <td>4</td>
-      <td>5</td>
-      <td>27</td>
-      <td>19</td>
-      <td>8</td>
-      <td>26</td>
-    </tr>
+   <c:forEach var="teamRank" items="${teamRank}" >
+    	  	<tr>
+    	      <td>${teamRank.rank}</td>
+    	      <td><img src="${teamRank.teamImage}" style="width: 40px; height: 40px;"/> &nbsp; ${teamRank.teamName}</td>
+    	      <td>${teamRank.game}</td>
+    	      <td>${teamRank.win}</td>
+    	      <td>${teamRank.draw}</td>
+    	      <td>${teamRank.loss}</td>
+    	      <td>${teamRank.score}</td>
+    	      <td>${teamRank.lossPoint}</td>
+    	      <td>${teamRank.gapScore}</td>
+    	      <td>${teamRank.point}</td>
+    	    </tr>
+	</c:forEach> 
   </tbody>
 </table>

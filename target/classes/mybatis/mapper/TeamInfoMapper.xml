@@ -8,4 +8,10 @@
 	<delete id="deleteTeamInfo" >
 		delete from TEAMRANK where season = #{t_season} AND leagueName = #{t_leagueName}
 	</delete>
+	<select id="searchTeamRank" parameterType="com.haechukgal.webapp.dto.TeamInfoDTO" resultType="com.haechukgal.webapp.dto.TeamInfoDTO">
+		SELECT *
+		FROM TEAMRANK
+		WHERE leaguename=#{t_leagueName} AND season=#{t_season}
+		ORDER BY rank ASC
+	</select>
 </mapper>

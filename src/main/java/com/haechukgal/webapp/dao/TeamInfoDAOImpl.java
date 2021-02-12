@@ -1,4 +1,6 @@
 package com.haechukgal.webapp.dao;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -23,6 +25,12 @@ public class TeamInfoDAOImpl implements TeamInfoDAO {
 	public void deleteTeamInfo(TeamInfoDTO teamInfoDTO) {
 		// TODO Auto-generated method stub
 		sst.insert("mybatis.mapper.TeamInfoMapper.deleteTeamInfo",teamInfoDTO);
+	}
+
+	@Override
+	public List<TeamInfoDTO> searchTeamRank(TeamInfoDTO teamInfoDTO) {
+		// TODO Auto-generated method stub
+		return sst.selectList("mybatis.mapper.TeamInfoMapper.searchTeamRank", teamInfoDTO);
 	}
 
 }

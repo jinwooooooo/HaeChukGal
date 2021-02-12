@@ -1,6 +1,7 @@
 package com.haechukgal.webapp.controller;
 
 import java.nio.file.spi.FileSystemProvider;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -23,6 +24,18 @@ public class PlayerRankController {
 		playerInfoDTO.setP_leagueName("epl");
 		playerInfoDTO.setP_season("20202021");
 		List<PlayerInfoDTO> playerRank = soccerInfoService.searchPlayerRank(playerInfoDTO);
+		
+		for(PlayerInfoDTO s : playerRank) {
+			String imageURL = s.getPlayerImage();
+			String[] image = imageURL.split("/");
+			List<String> list = Arrays.asList(image);
+			String element = "";
+			if( !list.isEmpty() )
+				element = (String)list.get(list.size() - 1);
+//			String playerImage = "http://img1.daumcdn.net/thumb/S100x100/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fsports%2Fplayer%2F300%2F14%2F"+element+"&scode=default_face_profile_big_p";
+			s.setPlayerImage(element);
+		}
+		
 		model.addAttribute("playerRank", playerRank);
 		return "playerrank";
 	}
@@ -37,7 +50,18 @@ public class PlayerRankController {
 		playerInfoDTO.setP_leagueName(choiceLeague);
 		playerInfoDTO.setP_season(season);
 		List<PlayerInfoDTO> playerRank = soccerInfoService.searchPlayerRank(playerInfoDTO);
-
+		
+		for(PlayerInfoDTO s : playerRank) {
+			String imageURL = s.getPlayerImage();
+			String[] image = imageURL.split("/");
+			List<String> list = Arrays.asList(image);
+			String element = "";
+			if( !list.isEmpty() )
+				element = (String)list.get(list.size() - 1);
+//			String playerImage = "http://img1.daumcdn.net/thumb/S100x100/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fsports%2Fplayer%2F300%2F14%2F"+element+"&scode=default_face_profile_big_p";
+			s.setPlayerImage(element);
+		}
+		
 		model.addAttribute("playerRank", playerRank);
 		model.addAttribute("startYear",startYear);
 		model.addAttribute("endYear",endYear);
