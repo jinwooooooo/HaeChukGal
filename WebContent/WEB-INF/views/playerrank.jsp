@@ -111,27 +111,27 @@
 	        <div class="row">
 	          <div class="col-lg-12 d-flex justify-content-center" data-aos-delay="100">
 	            <ul id="portfolio-flters">
-	              <li id="3" class='filter-active' style="font-size:17px;">
+	              <li class='filter-active' style="font-size:17px;">
 	              	<a href="javascript:playerlist(${startYear},${endYear},'epl','3')">
 	                  <span>프리미어리그</span>
 	              	</a>
 	              </li>
-	              <li id="4" class="league" style="font-size:17px;">
+	              <li class="league" style="font-size:17px;">
 	              	<a href="javascript:playerlist(${startYear},${endYear},'primera','4')">
 	                  <span>라리가</span>
 	              	</a>
 	              </li>
-	              <li id="5" class="league" style="font-size:17px;">
+	              <li class="league" style="font-size:17px;">
 	              	<a href="javascript:playerlist(${startYear},${endYear},'bundesliga','5')">
 	                  <span>분데스리가</span>
 	              	</a>
 	              </li >
-	              <li id="6" class="league" style="font-size:17px;">
+	              <li class="league" style="font-size:17px;">
 	              	<a href="javascript:playerlist(${startYear},${endYear},'seriea','6')">
 	                  <span>세리에A</span>
 	              	</a>
 	              </li>
-	              <li id="7" class="league" style="font-size:17px;">
+	              <li class="league" style="font-size:17px;">
 	              	<a href="javascript:playerlist(${startYear},${endYear},'ligue1','7')">
 	                  <span>리그1</span>
 	              	</a>

@@ -92,56 +92,56 @@
           <h2>팀 순위</h2>
         </div>
         
-        <div id="teamlist">
-        	<div style="text-align:center;">
-	          <a id="1" class="btn" href="javascript:teamlist(${startYear-1},${endYear-1},'${choiceLeague}','1')" style="display:inline-block; margin:0px 0px 10px 0px;">
-	        	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-				  <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
-				</svg>
-	          </a>
-	          <h3 style="display:inline-block;">${startYear} - ${endYear}</h3>
-	          <a id="2" class="btn" href="javascript:teamlist(${startYear+1},${endYear+1},'${choiceLeague}','2')" style="display:inline-block; margin:0px 0px 10px 0px;">
-	        	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-				  <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-				</svg>
-	          </a>
-	        </div>
-	        <br/>
+        
+       	<div id="teamlistyear" style="text-align:center;">
+          <a id="1" class="btn" href="javascript:teamlist(${startYear},${endYear},'${choiceLeague}','1')" style="display:inline-block; margin:0px 0px 10px 0px;">
+        	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+			  <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+			</svg>
+          </a>
+          <h3 style="display:inline-block;">${startYear} - ${endYear}</h3>
+          <a id="2" class="btn" href="javascript:teamlist(${startYear},${endYear},'${choiceLeague}','2')" style="display:inline-block; margin:0px 0px 10px 0px;">
+        	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+			  <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+			</svg>
+          </a>
+        </div>
+        <br/>
 	        
-	        <div class="row">
-	          <br/>
-	          <div class="col-lg-12 d-flex justify-content-center" data-aos-delay="100">
-	            <ul id="portfolio-flters" >
-	              <li class="filter-active" style="font-size:17px;">
-	              	<a href="javascript:teamlist(${startYear},${endYear},'epl','3')">
-	                  <span>프리미어리그</span>
-	              	</a>
-	              </li>
-	              <li class="league"  style="font-size:17px;">
-	              	<a href="javascript:teamlist(${startYear},${endYear},'primera','4')">
-	                  <span>라리가</span>
-	              	</a>
-	              </li>
-	              <li class="league"  style="font-size:17px;">
-	              	<a href="javascript:teamlist(${startYear},${endYear},'bundesliga','5')">
-	                  <span>분데스리가</span>
-	              	</a>
-	              </li >
-	              <li class="league"  style="font-size:17px;">
-	              	<a href="javascript:teamlist(${startYear},${endYear},'seriea','6')">
-	                  <span>세리에A</span>
-	              	</a>
-	              </li>
-	              <li class="league"  style="font-size:17px;">
-	              	<a href="javascript:teamlist(${startYear},${endYear},'ligue1','7')">
-	                  <span>리그1</span>
-	              	</a>
-	              </li>
-	            </ul>
-	          </div>
-	        </div>
-	        <br/>
-	        
+        <div class="row">
+          <br/>
+          <div class="col-lg-12 d-flex justify-content-center" data-aos-delay="100">
+            <ul id="portfolio-flters" >
+              <li class="filter-active" style="font-size:17px;">
+              	<a href="javascript:teamlist(${startYear},${endYear},'epl','3')">
+                  <span>프리미어리그</span>
+              	</a>
+              </li>
+              <li class="league"  style="font-size:17px;">
+              	<a href="javascript:teamlist(${startYear},${endYear},'primera','4')">
+                  <span>라리가</span>
+              	</a>
+              </li>
+              <li class="league"  style="font-size:17px;">
+              	<a href="javascript:teamlist(${startYear},${endYear},'bundesliga','5')">
+                  <span>분데스리가</span>
+              	</a>
+              </li >
+              <li class="league"  style="font-size:17px;">
+              	<a href="javascript:teamlist(${startYear},${endYear},'seriea','6')">
+                  <span>세리에A</span>
+              	</a>
+              </li>
+              <li class="league"  style="font-size:17px;">
+              	<a href="javascript:teamlist(${startYear},${endYear},'ligue1','7')">
+                  <span>리그1</span>
+              	</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <br/>
+	    <div id="teamlist">
 	        <table class="table table-striped" style="text-align:center;">
 	       	  <thead>
 	       	    <tr>
@@ -175,24 +175,24 @@
 	       	  </tbody>
 	       	</table>
          </div>
-      </div>
+       </div>
     </section>
     <!-- End Resume Section -->
   </main>
   
   <script>
   	function teamlist(startYear, endYear, choiceLeague, no){
-  		console.log(startYear);
-  		console.log(endYear);
-  		console.log(choiceLeague);
   		
-
-  		if(no=='3'||no=='4'||no=='5'||no=='6'||no=='7'){
- 			 $("#portfolio-flters li").removeClass('filter-active');
- 			 var no='#portfolio-flters #'+no;
- 			 $(no).addClass('filter-active'); 
- 		}
+	    if(no=='1'){
+	    	startYear=startYear-1;
+	    	endYear=endYear-1;
+	    }
 	    
+	    if(no=='2'){
+	    	startYear=startYear+1;
+	    	endYear=endYear+1;
+	    }
+	   
 	    $.ajax({
   			url:"teamlist",
   			method:"GET",
@@ -201,6 +201,14 @@
   				$("#teamlist").html(data);
   			}
   		});
+	    
+	    $.ajax({
+	    	url:"teamlistyear",
+	    	data:{startYear:startYear, endYear:endYear, choiceLeague:choiceLeague},
+	    	success:function(data){
+	    		$("#teamlistyear").html(data);
+	    	}
+	    });
 	 
   	}
   </script>
@@ -240,5 +248,7 @@
 
   <!-- Template Main JS File -->
   <script src="resources/assets/js/main.js"></script>
+  
+ 
 </body>
 </html>

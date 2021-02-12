@@ -23,6 +23,7 @@ public class TeamRankController {
 		teamInfoDTO.setT_season("20202021");
 		List<TeamInfoDTO> teamRank = soccerInfoService.searchTeamRank(teamInfoDTO);
 		model.addAttribute("teamRank", teamRank);
+		
 		return "teamrank";
 	}
 	
@@ -35,10 +36,20 @@ public class TeamRankController {
 		List<TeamInfoDTO> teamRank = soccerInfoService.searchTeamRank(teamInfoDTO);
 
 		model.addAttribute("teamRank", teamRank);
+		//model.addAttribute("startYear",startYear);
+		//model.addAttribute("endYear",endYear);
+		//model.addAttribute("choiceLeague",choiceLeague);
+		
+		return "teamlist";
+	}
+	
+	@RequestMapping("/teamlistyear")
+	public String teamlistyear(int startYear,int endYear, String choiceLeague, Model model) {
+		
 		model.addAttribute("startYear",startYear);
 		model.addAttribute("endYear",endYear);
 		model.addAttribute("choiceLeague",choiceLeague);
 		
-		return "teamlist";
+		return "teamlistyear";
 	}
 }
