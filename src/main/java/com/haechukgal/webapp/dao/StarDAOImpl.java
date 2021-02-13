@@ -16,4 +16,9 @@ public class StarDAOImpl implements StarDAO{
 	public void insertStar(StarDTO starDTO) {
 		sst.insert("mybatis.mapper.StarMapper.insertStar",starDTO);
 	}
+	
+	@Override
+	public void updateStar(StarDTO star) {
+		sst.update("mybatis.mapper.StarMapper.updateStar",star);
+	}
 }

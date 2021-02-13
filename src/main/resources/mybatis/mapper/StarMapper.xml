@@ -7,4 +7,10 @@
 			   (select nvl(max(member_no),0) as member_no from member),
 			    #{teamname}, #{leagueName})
 	</insert>
+	
+	<update id="updateStar">
+		update star
+		set leagueName=#{leagueName}, teamname=#{teamname}
+		where member_no=#{member_no} 
+	</update>
 </mapper>

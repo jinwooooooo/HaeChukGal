@@ -16,4 +16,9 @@ public class MemberDAOImpl implements MemberDAO{
 	public void insertMember(MemberDTO memberDTO) {
 		sst.insert("mybatis.mapper.MemberMapper.insertMember",memberDTO);
 	}
+	
+	@Override
+	public void updateMember(MemberDTO member) {
+		sst.update("mybatis.mapper.MemberMapper.updateMember",member);
+	}
 }

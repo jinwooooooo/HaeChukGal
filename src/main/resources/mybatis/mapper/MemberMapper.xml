@@ -5,4 +5,10 @@
 		insert into Member(member_no, pw, name, email, regdate, role, enabled)
 		values((select nvl(max(member_no),0)+1 as member_no from member),#{pw},#{name},#{email},sysdate,'ROLE_USER',1)
 	</insert>
+	
+	<update id="updateMember">
+		update member
+		set pw=#{pw}, email=#{email}
+		where name=#{name}
+	</update>
 </mapper>

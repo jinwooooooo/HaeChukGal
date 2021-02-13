@@ -90,33 +90,48 @@
           <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <ul id="portfolio-flters">
               <li class="filter-active" style="font-size:17px;">
-              	<a href="#">
+              	<a href="javascript:boardlisttotalbyleague('total')">
                   <span>전체</span>
               	</a>
               </li>
               <li class="league" style="font-size:17px;">
-              	<a href="#">
+              	<a href="javascript:boardlistbyleague('epl')">
                   <span>프리미어리그</span>
               	</a>
               </li>
               <li class="league" style="font-size:17px;">
-              	<a href="#">
+              	<a href="javascript:boardlistbyleague('primera')">
                   <span>라리가</span>
               	</a>
               </li>
               <li class="league" style="font-size:17px;">
-              	<a href="#">
+              	<a href="javascript:boardlistbyleague('bundesliga')">
                   <span>분데스리가</span>
               	</a>
               </li >
               <li class="league" style="font-size:17px;">
-              	<a href="#">
+              	<a href="javascript:boardlistbyleague('seriea')">
                   <span>세리에A</span>
               	</a>
               </li>
               <li class="league" style="font-size:17px;">
-              	<a href="#">
+              	<a href="javascript:boardlistbyleague('ligue1')">
                   <span>리그1</span>
+              	</a>
+              </li>
+              <li class="league" style="font-size:17px;">
+              	<a href="javascript:boardlistbyleague('uefacl')">
+                  <span>챔피언스리그</span>
+              	</a>
+              </li>
+              <li class="league" style="font-size:17px;">
+              	<a href="javascript:boardlistbyleague('uefacup')">
+                  <span>유로파리그</span>
+              	</a>
+              </li>
+              <li class="league" style="font-size:17px;">
+              	<a href="javascript:boardlistbyleague('facup')">
+                  <span>FA컵</span>
               	</a>
               </li>
             </ul>
@@ -126,9 +141,6 @@
 	    
 	    <nav class="navbar navbar-expand-lg justify-content-center bg-light">
 		  <div style="margin-right:20px;">
-		    <input type="date" style="text-align:center; padding:.375rem .75rem; border: 1px solid #ced4da; border-radius: .25rem;" id="startdate" name="startdate">
-		    <span>~</span>
-		    <input type="date" style="text-align:center; padding:.375rem .75rem; border: 1px solid #ced4da; border-radius: .25rem;" id="enddate" name="enddate">
 		  </div>
 		  <select name="gubun" style="padding:.375rem .75rem; border: 1px solid #ced4da; border-radius: .25rem; margin-right:10px;">
 		    <option value="" selected>-- 구분 --</option>
@@ -307,6 +319,16 @@
 		var output = document.getElementById('viewimg');
 		output.src = URL.createObjectURL(event.target.files[0]);
 	};
+	
+	function boardlistbyleague(choiceLeague){
+		$.ajax({
+			url:boardlistbyleague,
+			data:{choiceLeague:choiceLeague},
+			success:function(data){
+				$("#boardlisthtml").html(data);
+			}
+		});
+	}
   </script>
   <!-- ======= Footer ======= -->
   <footer id="footer">

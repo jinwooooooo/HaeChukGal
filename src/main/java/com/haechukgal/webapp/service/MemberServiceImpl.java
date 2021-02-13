@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.haechukgal.webapp.dao.MemberDAO;
 import com.haechukgal.webapp.dto.MemberDTO;
+import com.haechukgal.webapp.dto.StarDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -14,5 +15,10 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void insertMember(MemberDTO memberDTO) {
 		memberDAO.insertMember(memberDTO);
+	}
+	
+	@Override
+	public void updateMember(MemberDTO member) {
+		memberDAO.updateMember(member);
 	}
 }

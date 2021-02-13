@@ -94,7 +94,7 @@
                 <div class="validate"></div>
               </div>
               <div class="form-group" style="padding-bottom:40px;">
-                <input type="text" class="form-control" name="pw" id="pw" placeholder="비밀번호"/>
+                <input type="password" class="form-control" name="pw" id="pw" placeholder="비밀번호"/>
                 <div class="validate"></div>
               </div>
               <div style="text-align:center;">
