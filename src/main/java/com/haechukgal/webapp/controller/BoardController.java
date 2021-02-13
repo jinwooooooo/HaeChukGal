@@ -224,4 +224,10 @@ public class BoardController {
 		boardService.deleteBoardDTO(boardNo);
 		return "boardlist";
 	}
+	
+	@RequestMapping("/boardlistbyleague")
+	public String boardlistbyleague(String leagueName,Model model) {
+		
+		return "boardlist";
+	}
 }

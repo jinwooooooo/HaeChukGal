@@ -92,59 +92,63 @@
           <h2>개인 순위</h2>
         </div>
         
-        <div id="playerlist">
-	        <div style="text-align:center;">
-	        	<a id="1" class="btn" href="javascript:playerlist(${startYear-1},${endYear-1},'${choiceLeague}','1')" style="display:inline-block; margin:0px 0px 10px 0px;">
-	        		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-					  <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
-					</svg>
-	        	</a>
-	        	<h3 style="display:inline-block;">${startYear} - ${endYear}</h3>
-	        	<a id="2" class="btn" href="javascript:playerlist(${startYear+1},${endYear+1},'${choiceLeague}','2')" style="display:inline-block; margin:0px 0px 10px 0px;">
-	        		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-					  <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-					</svg>
-	        	</a>
-	        </div>
+        
+        <div id="playerlistyear" style="text-align:center;">
+        	<a id="1" class="btn" href="javascript:playerlist(${startYear},${endYear},'${choiceLeague}','1')" style="display:inline-block; margin:0px 0px 10px 0px;">
+        		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+				  <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+				</svg>
+        	</a>
+        	<h3 style="display:inline-block;">${startYear} - ${endYear}</h3>
+        	<a id="2" class="btn" href="javascript:playerlist(${startYear},${endYear},'${choiceLeague}','2')" style="display:inline-block; margin:0px 0px 10px 0px;">
+        		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+				  <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+				</svg>
+        	</a>
+        </div>
+	   
 	        <br/>
 	        
-	        <div class="row">
-	          <div class="col-lg-12 d-flex justify-content-center" data-aos-delay="100">
-	            <ul id="portfolio-flters">
-	              <li class='filter-active' style="font-size:17px;">
-	              	<a href="javascript:playerlist(${startYear},${endYear},'epl','3')">
-	                  <span>프리미어리그</span>
-	              	</a>
-	              </li>
-	              <li class="league" style="font-size:17px;">
-	              	<a href="javascript:playerlist(${startYear},${endYear},'primera','4')">
-	                  <span>라리가</span>
-	              	</a>
-	              </li>
-	              <li class="league" style="font-size:17px;">
-	              	<a href="javascript:playerlist(${startYear},${endYear},'bundesliga','5')">
-	                  <span>분데스리가</span>
-	              	</a>
-	              </li >
-	              <li class="league" style="font-size:17px;">
-	              	<a href="javascript:playerlist(${startYear},${endYear},'seriea','6')">
-	                  <span>세리에A</span>
-	              	</a>
-	              </li>
-	              <li class="league" style="font-size:17px;">
-	              	<a href="javascript:playerlist(${startYear},${endYear},'ligue1','7')">
-	                  <span>리그1</span>
-	              	</a>
-	              </li>
-	            </ul>
-	          </div>
-	        </div>
+		        <div class="row">
+		          <div class="col-lg-12 d-flex justify-content-center" data-aos-delay="100">
+		            <ul id="portfolio-flters">
+		              <li class='filter-active' style="font-size:17px;">
+		              	<a href="javascript:playerlist(${startYear},${endYear},'epl','3')">
+		                  <span>프리미어리그</span>
+		              	</a>
+		              </li>
+		              <li class="league" style="font-size:17px;">
+		              	<a href="javascript:playerlist(${startYear},${endYear},'primera','4')">
+		                  <span>라리가</span>
+		              	</a>
+		              </li>
+		              <li class="league" style="font-size:17px;">
+		              	<a href="javascript:playerlist(${startYear},${endYear},'bundesliga','5')">
+		                  <span>분데스리가</span>
+		              	</a>
+		              </li >
+		              <li class="league" style="font-size:17px;">
+		              	<a href="javascript:playerlist(${startYear},${endYear},'seriea','6')">
+		                  <span>세리에A</span>
+		              	</a>
+		              </li>
+		              <li class="league" style="font-size:17px;">
+		              	<a href="javascript:playerlist(${startYear},${endYear},'ligue1','7')">
+		                  <span>리그1</span>
+		              	</a>
+		              </li>
+		            </ul>
+		          </div>
+		        </div>
+	        
+	        
 	        <br/>
+	        <div id="playlist">
 	        <table class="table table-striped" style="text-align:center;">
 	       	  <thead>
 	       	    <tr>
 	       	      <th>순위</th>
-	       	      <th>선수</th>
+	       	      <th style="text-align: left;">선수</th>
 	       	      <th>팀</th>
 	       	      <th>경기</th>
 	       	      <th>득점</th>
@@ -161,7 +165,7 @@
 	       	  <c:forEach var="playerRank" items="${playerRank}" >
 	       	  	<tr>
 	       	      <td>${playerRank.rank}</td>
-	       	      <td>${playerRank.playerName} </td>
+	       	      <td style="text-align: left;"><img src="http://img1.daumcdn.net/thumb/S100x100/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fsports%2Fplayer%2F300%2F14%2F${playerRank.playerImage}&scode=default_face_profile_big_p" onerror="this.src='https://t1.daumcdn.net/media/img-section/sports13/player/noimage/square_m.png'" style="width: 50px; height:50px; border-radius: 25px;"/> &nbsp; ${playerRank.playerName} </td>
 	       	      <td>${playerRank.teamName}</td>
 	       	      <td>${playerRank.game}</td>
 	       	      <td>${playerRank.score}</td>
@@ -176,7 +180,9 @@
 	       	  </c:forEach>  
 	       	  </tbody>
 	       	</table>
-       	 </div>
+	       	</div>
+	       	
+       	 
       </div>
     </section>
     <!-- End Resume Section -->
@@ -189,20 +195,32 @@
   		console.log(choiceLeague);
   		
 
-  		if(no=='3'||no=='4'||no=='5'||no=='6'||no=='7'){
- 			 $("#portfolio-flters li").removeClass('filter-active');
- 			 var no='#portfolio-flters #'+no;
- 			 $(no).addClass('filter-active'); 
- 		}
+  		if(no=='1'){
+	    	startYear=startYear-1;
+	    	endYear=endYear-1;
+	    }
 	    
+	    if(no=='2'){
+	    	startYear=startYear+1;
+	    	endYear=endYear+1;
+	    }
+	   
 	    $.ajax({
   			url:"playerlist",
   			method:"GET",
   			data:{startYear:startYear, endYear:endYear, choiceLeague:choiceLeague},
   			success:function(data){
-  				$("#playerlist").html(data);
+  				$("#playlist").html(data);
   			}
   		});
+	    
+	    $.ajax({
+	    	url:"playerlistyear",
+	    	data:{startYear:startYear, endYear:endYear, choiceLeague:choiceLeague},
+	    	success:function(data){
+	    		$("#playerlistyear").html(data);
+	    	}
+	    });
 	 
   	}
   </script>

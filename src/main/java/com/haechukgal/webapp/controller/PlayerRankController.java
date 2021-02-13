@@ -69,4 +69,14 @@ public class PlayerRankController {
 		
 		return "playerlist";
 	}
+	
+	@RequestMapping("/playerlistyear")
+	public String playerlistyear(int startYear,int endYear, String choiceLeague, Model model) {
+		
+		model.addAttribute("startYear",startYear);
+		model.addAttribute("endYear",endYear);
+		model.addAttribute("choiceLeague",choiceLeague);
+		
+		return "playerlistyear";
+	}
 }

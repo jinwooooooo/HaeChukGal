@@ -5,6 +5,7 @@ import java.util.List;
 import com.haechukgal.webapp.dto.GameInfoDTO;
 import com.haechukgal.webapp.dto.MyTeamInfoDTO;
 import com.haechukgal.webapp.dto.PlayerInfoDTO;
+import com.haechukgal.webapp.dto.ScheduleTeamNameDTO;
 import com.haechukgal.webapp.dto.TeamInfoDTO;
 
 public interface SoccerInfoService {
@@ -19,4 +20,7 @@ public interface SoccerInfoService {
 	public MyTeamInfoDTO searchMyTeamIMG(String name);
 	public List<PlayerInfoDTO> searchPlayerRank(PlayerInfoDTO playerInfoDTO);
 	public List<TeamInfoDTO> searchTeamRank(TeamInfoDTO teamInfoDTO);
+	public List<ScheduleTeamNameDTO> searchScheduleTeam(String leagueName);
+	public List<MyTeamInfoDTO> searchScheduleSeason(GameInfoDTO gameInfoDTO);
+	public List<MyTeamInfoDTO> searchScheduleMonth(GameInfoDTO gameInfoDTO);
 }

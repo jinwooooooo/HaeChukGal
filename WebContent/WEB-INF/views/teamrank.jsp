@@ -146,7 +146,7 @@
 	       	  <thead>
 	       	    <tr>
 	       	      <th>순위</th>
-	       	      <th>팀명</th>
+	       	      <th style="text-align: left;">팀명</th>
 	       	      <th>경기수</th>
 	       	      <th>승</th>
 	       	      <th>무</th>
@@ -161,7 +161,7 @@
 			   <c:forEach var="teamRank" items="${teamRank}" >
 			    	  	<tr>
 			    	      <td>${teamRank.rank}</td>
-			    	      <td><img src="${teamRank.teamImage}" style="width: 40px; height: 40px;"/> &nbsp; ${teamRank.teamName}</td>
+			    	      <td style="text-align: left;"><img src="${teamRank.teamImage}" style="width: 40px; height: 40px;"/> &nbsp; ${teamRank.teamName}</td>
 			    	      <td>${teamRank.game}</td>
 			    	      <td>${teamRank.win}</td>
 			    	      <td>${teamRank.draw}</td>
