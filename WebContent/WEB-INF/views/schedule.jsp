@@ -79,6 +79,13 @@
   </header>
   <!-- End Header -->
   
+  <c:set var="startYear" value="2020"/>
+  <c:set var="endYear" value="2021"/>
+  <c:set var="choiceLeague" value="epl"/>
+  <c:set var="choiceMonth" value="02"/>
+  <c:set var="choiceTeam" value="all"/>
+  
+  
   <main id="main">
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio section-bg">
@@ -91,44 +98,43 @@
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <ul id="portfolio-flters">
-              <li class="filter-active"><a href="#">ALL</a></li>
-              <li>
-              	<a href="#">
+              <li  class="filter-active">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'epl' , ${choiceMonth}, ${choiceTeam}, '3')">
                   <span>프리미어리그</span>
               	</a>
               </li>
-              <li>
-              	<a href="#">
+              <li class="league">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'primera' , ${choiceMonth}, ${choiceTeam}. '4')">
                   <span>라리가</span>
               	</a>
               </li>
               <li class="league">
-              	<a href="#">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'bundesliga' , ${choiceMonth}, ${choiceTeam}. '5')">
                   <span>분데스리가</span>
               	</a>
               </li >
               <li class="league">
-              	<a href="#">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'seriea' , ${choiceMonth}, ${choiceTeam}. '6')">
                   <span>세리에A</span>
               	</a>
               </li>
               <li class="league">
-              	<a href="#">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'ligue1' , ${choiceMonth}, ${choiceTeam}. '7')">
                   <span>리그1</span>
               	</a>
               </li>
               <li class="league">
-              	<a href="#">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'uefacl' , ${choiceMonth}, ${choiceTeam}. '8')">
                   <span>챔피언스리그</span>
               	</a>
               </li>
               <li class="league">
-              	<a href="#">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'uefacup' , ${choiceMonth}, ${choiceTeam}. '9')">
                   <span>유로파리그</span>
               	</a>
               </li>
               <li class="league">
-              	<a href="#">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'facup' , ${choiceMonth}, ${choiceTeam}. '10')">
                   <span>The FA컵</span>
               	</a>
               </li>
@@ -136,156 +142,79 @@
           </div>
         </div>
         
-        <div style="text-align:center;">
-        	<a href="#" type="button" style="display:inline-block;">
+        
+        <div id="schedulelistyear" style="text-align:center;">
+        	<a id="1" href="javascript:schedule(${startYear} , ${endYear}, ${choiceLeague} , ${choiceMonth}, ${choiceTeam}. '1')" type="button" style="display:inline-block;">
         	  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="margin-bottom:11px; margin-right:5px;" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
 			    <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
 			  </svg>
         	</a>
-        	<h1 style="display:inline-block;">2021.02</h1>
-        	<a href="#" type="button" style="display:inline-block;">
+        	<h1 style="display:inline-block;">${startYear} - ${endYear}</h1>
+        	<a id="2" href="javascript:schedule(${startYear} , ${endYear}, ${choiceLeague} , ${choiceMonth}, ${choiceTeam}. '2')" type="button" style="display:inline-block;">
         	  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="margin-bottom:11px; margin-left:5px;" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
 			    <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753l5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
 			  </svg>
 			</a>
 		</div>
+		
+		
 		<br/>
         <div class="row" style="width:100%;">
           <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <ul style="display:table;" id="portfolio-flters">
-              <li class="filter-active" style="display:table-cell; border:1px solid #bdbfbf;"><a href="#">ALL</a></li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;">
-              	<a href="#">
-                  <span>1월</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>2월</span>
-              	</a>
-              </li >
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>3월</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="monthe">
-              	<a href="#">
-                  <span>4월</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>5월</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>6월</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>7월</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>8월</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>9월</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>10월</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>11월</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>12월</span>
-              	</a>
-              </li>
+            	<c:forEach var="montharr" items="${montharr}" >
+            		  <li class="month" style="display:table-cell; border:1px solid #bdbfbf;">
+		              	<a href="javascript:schedule(${startYear} , ${endYear}, ${choiceLeague} , '${montharr}', ${choiceTeam}. '12')" >
+		                  <span>${montharr}월</span>
+		              	</a>
+		              </li>
+            	</c:forEach>     
             </ul>
           </div>
         </div>
         
-        <div class="row" style="width:100%;">
+        <%-- <div class="row" style="width:100%;">
           <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <ul style="display:table; overflow:auto" id="portfolio-flters">
-              <li class="filter-active" style="display:table-cell; border:1px solid #bdbfbf;"><a href="#">ALL</a></li>
-              <li style="display:table-cell; overflow:visible; border:1px solid #bdbfbf;">
+              <li class="filter-active" style="display:table-cell; border:1px solid #bdbfbf;">
               	<a href="#">
-                  <span>맨시티</span>
+              		<span>ALL</span>
               	</a>
               </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>맨유</span>
-              	</a>
-              </li >
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>리버풀</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="monthe">
-              	<a href="#">
-                  <span>레스터시티</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>웨스트햄</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>토트넘</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>첼시</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>에버턴</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>아스톤빌라</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>아스널</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>사우샘프턴</span>
-              	</a>
-              </li>
-              <li style="display:table-cell; border:1px solid #bdbfbf;" class="month">
-              	<a href="#">
-                  <span>리즈</span>
-              	</a>
-              </li>
+			      <c:forEach var="epl" items="${epl}" >
+	              <li class="als-item" style="display:table-cell; overflow:visible; border:1px solid #bdbfbf;">
+	              	<a href="#">
+	                  <span><img src="${epl.teamName}" style="width: 40px; height: 40px;"/></span>
+	              	</a>
+	              </li>
+              	  </c:forEach>	
+              
             </ul>
           </div>
-        </div>
-        <br><br>
+        </div> --%>
+        
+        <br>
+        <div style="text-align:right;">
+	        <svg xmlns="http://www.w3.org/2000/svg" style="color:#2E2EFE;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+			<circle cx="8" cy="8" r="8"/>
+			</svg>
+	        <span> : 경기 종료　</span>
+	        <svg xmlns="http://www.w3.org/2000/svg" style="color:#04B404;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+			<circle cx="8" cy="8" r="8"/>
+			</svg>
+	        <span> : 경기 전　　</span>
+	        <pre></pre>
+	        <svg xmlns="http://www.w3.org/2000/svg" style="color:#FF0000;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+			<circle cx="8" cy="8" r="8"/>
+			</svg>
+	        <span> : 경기 취소　</span>
+	        <svg xmlns="http://www.w3.org/2000/svg" style="color:black;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+			<circle cx="8" cy="8" r="8"/>
+			</svg>
+	        <span> : 경기 연기　</span>
+	    </div>
+        
+        <br>
         
         <table class="table table-striped" style="text-align:center;">
        	  <thead>
@@ -299,30 +228,46 @@
        	    </tr>
        	  </thead>
        	  <tbody>
-       	    <tr>
-       	      <td>01.03 (일)</td>
-       	      <td>20:30</td>
-       	      <td>Goodison Park</td>
-       	      <td>에버튼 0 vs 1 웨스트햄</td>
-       	      <td>프리미어 리그</td>
-       	      <td>17R</td>
-       	    </tr>
-       	    <tr>
-       	      <td>01.13 (수)</td>
-       	      <td>03:00</td>
-       	      <td>Old Trafford</td>
-       	      <td>맨유 1 vs 0 리버풀</td>
-       	      <td>프리미어 리그</td>
-       	      <td>18R</td>
-       	    </tr>
-       	    <tr>
-       	      <td>01.30 (토)</td>
-       	      <td>20:30</td>
-       	      <td>Goodison Park</td>
-       	      <td>에버튼 0 vs 1 노리치</td>
-       	      <td>프리미어 리그</td>
-       	      <td>31R</td>
-       	    </tr>
+       	    <c:forEach var="gameList" items="${gameList}" >
+       	    	<tr style="vertical-align:center;">
+					<td>${gameList.matchdate}</td>
+					<td>${gameList.matchtime}</td>
+					<td>${gameList.stadium}</td>
+					<td style="align: center;">
+					   <img src="${gameList.homeimage}" style="width: 40px; height: 40px;"/> ${gameList.homename} ${gameList.homescore} vs ${gameList.awayscore} ${gameList.awayname} <img src="${gameList.awayimage}" style="width: 40px; height: 40px;"/>
+					</td>
+					<td>${gameList.leagueName}</td>
+					<td>${gameList.round}R</td>
+					<c:if test="${gameList.gamestatus=='종료'}">
+						<td>
+							<svg xmlns="http://www.w3.org/2000/svg" style="color:#2E2EFE;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+	  						<circle cx="8" cy="8" r="8"/>
+							</svg>
+						</td>
+					</c:if>
+					<c:if test="${gameList.gamestatus=='경기전'}">
+						<td>
+							<svg xmlns="http://www.w3.org/2000/svg" style="color:#04B404;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+	  						<circle cx="8" cy="8" r="8"/>
+							</svg>
+						</td>
+					</c:if>
+					<c:if test="${gameList.gamestatus=='경기취소'}">
+						<td>
+							<svg xmlns="http://www.w3.org/2000/svg" style="color:#FF0000;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+	  						<circle cx="8" cy="8" r="8"/>
+							</svg>
+						</td>
+					</c:if>
+					<c:if test="${gameList.gamestatus=='연기'}">
+						<td>
+							<svg xmlns="http://www.w3.org/2000/svg" style="color:black;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+	  						<circle cx="8" cy="8" r="8"/>
+							</svg>
+						</td>
+					</c:if>
+       	    	</tr>
+  		  	</c:forEach>
        	  </tbody>
        	</table>
        	
@@ -330,6 +275,41 @@
     </section>
     <!-- End Portfolio Section -->
   </main>
+  <script>
+
+  	
+  	function schedule(startYear, endYear, choiceLeague, choiceMonth, choiceTeam, no){
+  		
+	    if(no=='1'){
+	    	startYear=startYear-1;
+	    	endYear=endYear-1;
+	    }
+	    
+	    if(no=='2'){
+	    	startYear=startYear+1;
+	    	endYear=endYear+1;
+	    }
+	   
+	   /*  $.ajax({
+  			url:"teamlist",
+  			method:"GET",
+  			data:{startYear:startYear, endYear:endYear, choiceLeague:choiceLeague},
+  			success:function(data){
+  				$("#teamlist").html(data);
+  			}
+  		});
+	    
+	    $.ajax({
+	    	url:"teamlistyear",
+	    	data:{startYear:startYear, endYear:endYear, choiceLeague:choiceLeague},
+	    	success:function(data){
+	    		$("#teamlistyear").html(data);
+	    	}
+	    }); */
+	 
+  	}
+  </script>
+
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
@@ -365,5 +345,6 @@
 
   <!-- Template Main JS File -->
   <script src="resources/assets/js/main.js"></script>
+  <script src="resources/assets/js/jquery.als-2.1.min.js"></script>
 </body>
 </html>

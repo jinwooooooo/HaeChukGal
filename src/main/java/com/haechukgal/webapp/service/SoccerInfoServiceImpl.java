@@ -11,6 +11,7 @@ import com.haechukgal.webapp.dao.TeamInfoDAO;
 import com.haechukgal.webapp.dto.GameInfoDTO;
 import com.haechukgal.webapp.dto.MyTeamInfoDTO;
 import com.haechukgal.webapp.dto.PlayerInfoDTO;
+import com.haechukgal.webapp.dto.ScheduleTeamNameDTO;
 import com.haechukgal.webapp.dto.TeamInfoDTO;
 
 @Service
@@ -76,6 +77,21 @@ public class SoccerInfoServiceImpl implements SoccerInfoService {
 	public List<TeamInfoDTO> searchTeamRank(TeamInfoDTO teamInfoDTO) {
 		// TODO Auto-generated method stub
 		return teamInfoDAO.searchTeamRank(teamInfoDTO);
+	}
+	@Override
+	public List<ScheduleTeamNameDTO> searchScheduleTeam(String leagueName) {
+		// TODO Auto-generated method stub
+		return gameInfoDAO.searchScheduleTeam(leagueName);
+	}
+	@Override
+	public List<MyTeamInfoDTO> searchScheduleSeason(GameInfoDTO gameInfoDTO) {
+		// TODO Auto-generated method stub
+		return gameInfoDAO.searchScheduleSeason(gameInfoDTO);
+	}
+	@Override
+	public List<MyTeamInfoDTO> searchScheduleMonth(GameInfoDTO gameInfoDTO) {
+		// TODO Auto-generated method stub
+		return gameInfoDAO.searchScheduleMonth(gameInfoDTO);
 	}
 	
 }

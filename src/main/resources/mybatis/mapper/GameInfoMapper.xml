@@ -13,6 +13,11 @@
 		FROM GAMEINFORMATION
 		WHERE SEASON='20202021' AND LEAGUENAME=#{leagueName}
 	</select> 
+	<select id="searchScheduleTeam" parameterType="String" resultType="com.haechukgal.webapp.dto.ScheduleTeamNameDTO">
+		select DISTINCT(HOMEIMAGE) as teamName
+		FROM GAMEINFORMATION
+		WHERE SEASON='20202021' AND LEAGUENAME=#{leagueName}
+	</select> 
 	<select id="searchMyTeam" parameterType="String" resultType="com.haechukgal.webapp.dto.MyTeamInfoDTO">
 		SELECT *
 		FROM (SELECT b.teamname, b.leaguename
@@ -28,5 +33,19 @@
       		  FROM member a, star b 
       		  WHERE a.name=#{name} AND b.member_no = a.member_no) a , GAMEINFORMATION B 
 		WHERE b.homename = a.teamname AND b.leaguename = a.leaguename AND b.season = '20202021'
+	</select>
+	
+	<select id="searchScheduleSeason" parameterType="com.haechukgal.webapp.dto.GameInfoDTO" resultType="com.haechukgal.webapp.dto.MyTeamInfoDTO">
+		select *
+		FROM GAMEINFORMATION
+		WHERE SEASON=#{g_season} AND LEAGUENAME=#{g_leagueName} 
+		ORDER BY MATCHDATE asc
+	</select>
+	
+	<select id="searchScheduleMonth" parameterType="com.haechukgal.webapp.dto.GameInfoDTO" resultType="com.haechukgal.webapp.dto.MyTeamInfoDTO">
+		select *
+		FROM GAMEINFORMATION
+		WHERE SEASON=#{g_season} AND LEAGUENAME=#{g_leagueName}  AND MATCHDATE LIKE #{matchdate} 
+		ORDER BY MATCHDATE asc
 	</select>
 </mapper>

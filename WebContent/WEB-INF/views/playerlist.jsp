@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>순위</th>
-      <th>선수</th>
+      <th style="text-align: left;">선수</th>
       <th>팀</th>
       <th>경기</th>
       <th>득점</th>

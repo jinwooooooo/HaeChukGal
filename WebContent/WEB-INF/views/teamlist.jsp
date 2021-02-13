@@ -5,7 +5,7 @@
   <thead>
     <tr>
       <th>순위</th>
-      <th>팀명</th>
+      <th style="text-align: left;">팀명</th>
       <th>경기수</th>
       <th>승</th>
       <th>무</th>
