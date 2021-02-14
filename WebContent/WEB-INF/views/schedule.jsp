@@ -83,7 +83,6 @@
   <c:set var="endYear" value="2021"/>
   <c:set var="choiceLeague" value="epl"/>
   <c:set var="choiceMonth" value="02"/>
-  <c:set var="choiceTeam" value="all"/>
   
   
   <main id="main">
@@ -99,42 +98,42 @@
           <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <ul id="portfolio-flters">
               <li  class="filter-active">
-              	<a href="javascript:schedule(${startYear} , ${endYear}, 'epl' , ${choiceMonth}, ${choiceTeam}, '3')">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'epl' , '${choiceMonth}', '3')">
                   <span>프리미어리그</span>
               	</a>
               </li>
               <li class="league">
-              	<a href="javascript:schedule(${startYear} , ${endYear}, 'primera' , ${choiceMonth}, ${choiceTeam}. '4')">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'primera' , '${choiceMonth}', '4')">
                   <span>라리가</span>
               	</a>
               </li>
               <li class="league">
-              	<a href="javascript:schedule(${startYear} , ${endYear}, 'bundesliga' , ${choiceMonth}, ${choiceTeam}. '5')">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'bundesliga' , '${choiceMonth}', '5')">
                   <span>분데스리가</span>
               	</a>
               </li >
               <li class="league">
-              	<a href="javascript:schedule(${startYear} , ${endYear}, 'seriea' , ${choiceMonth}, ${choiceTeam}. '6')">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'seriea' , '${choiceMonth}', '6')">
                   <span>세리에A</span>
               	</a>
               </li>
               <li class="league">
-              	<a href="javascript:schedule(${startYear} , ${endYear}, 'ligue1' , ${choiceMonth}, ${choiceTeam}. '7')">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'ligue1' , '${choiceMonth}', '7')">
                   <span>리그1</span>
               	</a>
               </li>
               <li class="league">
-              	<a href="javascript:schedule(${startYear} , ${endYear}, 'uefacl' , ${choiceMonth}, ${choiceTeam}. '8')">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'uefacl' , '${choiceMonth}', '8')">
                   <span>챔피언스리그</span>
               	</a>
               </li>
               <li class="league">
-              	<a href="javascript:schedule(${startYear} , ${endYear}, 'uefacup' , ${choiceMonth}, ${choiceTeam}. '9')">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'uefacup' , '${choiceMonth}', '9')">
                   <span>유로파리그</span>
               	</a>
               </li>
               <li class="league">
-              	<a href="javascript:schedule(${startYear} , ${endYear}, 'facup' , ${choiceMonth}, ${choiceTeam}. '10')">
+              	<a href="javascript:schedule(${startYear} , ${endYear}, 'facup' , '${choiceMonth}','10')">
                   <span>The FA컵</span>
               	</a>
               </li>
@@ -143,14 +142,14 @@
         </div>
         
         
-        <div id="schedulelistyear" style="text-align:center;">
-        	<a id="1" href="javascript:schedule(${startYear} , ${endYear}, ${choiceLeague} , ${choiceMonth}, ${choiceTeam}. '1')" type="button" style="display:inline-block;">
+        <div id="scheduleyear" style="text-align:center;">
+        	<a id="1" href="javascript:schedule(${startYear} , ${endYear}, '${choiceLeague}' , '${choiceMonth}', '1')" type="button" style="display:inline-block;">
         	  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="margin-bottom:11px; margin-right:5px;" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
 			    <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
 			  </svg>
         	</a>
         	<h1 style="display:inline-block;">${startYear} - ${endYear}</h1>
-        	<a id="2" href="javascript:schedule(${startYear} , ${endYear}, ${choiceLeague} , ${choiceMonth}, ${choiceTeam}. '2')" type="button" style="display:inline-block;">
+        	<a id="2" href="javascript:schedule(${startYear} , ${endYear}, '${choiceLeague}' , '${choiceMonth}', '2')" type="button" style="display:inline-block;">
         	  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="margin-bottom:11px; margin-left:5px;" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
 			    <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753l5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
 			  </svg>
@@ -160,11 +159,11 @@
 		
 		<br/>
         <div class="row" style="width:100%;">
-          <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <ul style="display:table;" id="portfolio-flters">
+          <div id="schedulemonth" class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <ul style="display:table;" id="portfolio-flters1">
             	<c:forEach var="montharr" items="${montharr}" >
             		  <li class="month" style="display:table-cell; border:1px solid #bdbfbf;">
-		              	<a href="javascript:schedule(${startYear} , ${endYear}, ${choiceLeague} , '${montharr}', ${choiceTeam}. '12')" >
+		              	<a href="javascript:schedule(${startYear} , ${endYear}, '${choiceLeague}' , '${montharr}', '12')" >
 		                  <span>${montharr}월</span>
 		              	</a>
 		              </li>
@@ -225,6 +224,7 @@
        	      <th>경기 정보</th>
        	      <th>리그</th>
        	      <th>구분</th>
+       	      <th>상태</th>
        	    </tr>
        	  </thead>
        	  <tbody>
@@ -278,7 +278,7 @@
   <script>
 
   	
-  	function schedule(startYear, endYear, choiceLeague, choiceMonth, choiceTeam, no){
+  	function schedule(startYear, endYear, choiceLeague, choiceMonth, no){
   		
 	    if(no=='1'){
 	    	startYear=startYear-1;
@@ -289,7 +289,29 @@
 	    	startYear=startYear+1;
 	    	endYear=endYear+1;
 	    }
-	   
+	    
+	    console.log(startYear);
+  		console.log(endYear);
+  		console.log(choiceLeague);
+  		console.log(choiceMonth);
+  		console.log(no);
+  		
+	    $.ajax({
+	    	url:"scheduleyear",
+	    	data:{startYear:startYear, endYear:endYear, choiceLeague:choiceLeague, choiceMonth:choiceMonth},
+	    	success:function(data){
+	    		$("#scheduleyear").html(data);
+	    	}
+	    });
+	    
+	    $.ajax({
+	    	url:"schedulemonth",
+	    	data:{startYear:startYear, endYear:endYear, choiceLeague:choiceLeague, choiceMonth:choiceMonth},
+	    	success:function(data){
+	    		$("#schedulemonth").html(data);
+	    	}
+	    });
+	    
 	   /*  $.ajax({
   			url:"teamlist",
   			method:"GET",

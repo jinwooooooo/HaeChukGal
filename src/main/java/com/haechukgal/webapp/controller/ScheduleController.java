@@ -155,4 +155,50 @@ public class ScheduleController {
 		}
 		return tmp;
 	}
+	
+	@RequestMapping("/scheduleyear")
+	public String scheduleyear(int startYear,int endYear, String choiceLeague, String choiceMonth, Model model) {
+		
+		model.addAttribute("startYear",startYear);
+		model.addAttribute("endYear",endYear);
+		model.addAttribute("choiceLeague",choiceLeague);
+		model.addAttribute("choiceMonth",choiceMonth);
+		
+		return "scheduleyear";
+	}
+	
+	@RequestMapping("/schedulemonth")
+	public String schedulemonth(int startYear,int endYear, String choiceLeague, String choiceMonth, Model model) {
+		
+		String season = Integer.toString(startYear)+Integer.toString(endYear);
+		
+		List<String> monthArr = new ArrayList();
+		List<String> monthArr2 = new ArrayList();
+		GameInfoDTO gameInfoDTO = new GameInfoDTO();
+		gameInfoDTO.setG_leagueName(choiceLeague);
+		gameInfoDTO.setG_season(season);
+		List<MyTeamInfoDTO> seasonMonth = soccerInfoService.searchScheduleSeason(gameInfoDTO);
+		for(MyTeamInfoDTO s : seasonMonth) {
+			String matchDate = s.getMatchdate();
+			String year = matchDate.substring(0, 4);
+			String month = matchDate.substring(4, 6);
+			String day1 = matchDate.substring(6, 8);
+			if(!monthArr.contains(month)) {
+				monthArr.add(month);
+			}
+		}
+		for(String s:monthArr) {
+			if(s.charAt(0) == '0') {
+				s = s.substring(1, 2);
+			}
+			monthArr2.add(s);
+		}
+		
+		model.addAttribute("startYear",startYear);
+		model.addAttribute("endYear",endYear);
+		model.addAttribute("choiceLeague",choiceLeague);
+		model.addAttribute("choiceMonth",choiceMonth);
+		model.addAttribute("montharr", monthArr2);
+		return "schedulemonth";
+	}
 }

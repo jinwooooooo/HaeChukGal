@@ -161,6 +161,7 @@
       });
       aos_init();
     });
+	
 
     // Initiate venobox (lightbox feature used in portofilo)
     $('.venobox').venobox({
@@ -171,14 +172,9 @@
     aos_init();
 
   });
-
-  // Testimonials carousel (uses the Owl Carousel library)
-  $(".testimonials-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    items: 1
-  });
+  
+  // another filter - id: filter1
+  
 
   // Portfolio details carousel
   $(".portfolio-details-carousel").owlCarousel({
