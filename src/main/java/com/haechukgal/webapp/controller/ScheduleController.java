@@ -101,60 +101,7 @@ public class ScheduleController {
 		
 		return "schedule";
 	}
-	public String getDay(int day){
-		String tmp="";
-		switch(day) {
-			case 1: tmp = "(일)";
-					 break;
-			case 2: tmp = "(월)";
-			 		 break;
-			case 3: tmp = "(화)";
-			 		 break;
-			case 4: tmp = "(수)";
-	 		 		 break;
-			case 5: tmp = "(목)";
-			 	 	 break;
-			case 6: tmp = "(금)";
-				 	 break;
-			case 7: tmp = "(토)";
-		 	 		 break;
-		}
-		return tmp;
-	}
-	
-	public String getKorLeagueName(String leagueName) {
-		String tmp="";
-		switch(leagueName) {
-			case "epl":     	tmp = "프리미어리그";
-					         	break;
-			case "primera": 	tmp = "라리가";
-			 		 		 	break;
-			case "bundesliga":  tmp = "분데스리가";
-			 		 			 break;
-			case "seriea": 		 tmp = "세리에 A";
-	 		 		 			 break;
-			case "ligue1": 		 tmp = "리그 앙";
-			 	 	 			 break;
-		}
-		return tmp;
-	}
-	
-	public String getKorGameStatus(String status) {
-		String tmp="";
-		switch(status) {
-			case "CANCEL":     	tmp = "경기취소";
-					         	break;
-			case "END": 		tmp = "종료";
-			 		 		 	break;
-			case "POSTPONE":  	tmp = "연기";
-			 		 			break;
-			case "BEFORE": 		tmp = "경기전";
-	 		 		 			break;
-			case "PLAY": 		tmp = "경기중";
-			 	 	 			break;
-		}
-		return tmp;
-	}
+
 	
 	@RequestMapping("/scheduleyear")
 	public String scheduleyear(int startYear,int endYear, String choiceLeague, String choiceMonth, Model model) {
@@ -316,6 +263,67 @@ public class ScheduleController {
 		}
 		model.addAttribute("gameList", gameList);
 		return "schedulematch";
+	}
+	
+	public String getDay(int day){
+		String tmp="";
+		switch(day) {
+			case 1: tmp = "(일)";
+					 break;
+			case 2: tmp = "(월)";
+			 		 break;
+			case 3: tmp = "(화)";
+			 		 break;
+			case 4: tmp = "(수)";
+	 		 		 break;
+			case 5: tmp = "(목)";
+			 	 	 break;
+			case 6: tmp = "(금)";
+				 	 break;
+			case 7: tmp = "(토)";
+		 	 		 break;
+		}
+		return tmp;
+	}
+	
+	public String getKorLeagueName(String leagueName) {
+		String tmp="";
+		switch(leagueName) {
+			case "epl":     	tmp = "프리미어리그";
+					         	break;
+			case "primera": 	tmp = "라리가";
+			 		 		 	break;
+			case "bundesliga":  tmp = "분데스리가";
+			 		 			 break;
+			case "seriea": 		 tmp = "세리에 A";
+	 		 		 			 break;
+			case "ligue1": 		 tmp = "리그 앙";
+			 	 	 			 break;
+			case "facup": 		 tmp = "FA 컵";
+	 			 				 break;
+			case "uefacl": 		 tmp = "챔피언스리그";
+	 			 				 break;
+			case "uefacup": 	 tmp = "유로파리그";
+	 			 				 break;
+		}
+		return tmp;
+	}
+	
+	public String getKorGameStatus(String status) {
+		String tmp="";
+		switch(status) {
+			case "CANCEL":     	tmp = "경기취소";
+					         	break;
+			case "END": 		tmp = "종료";
+			 		 		 	break;
+			case "POSTPONE":  	tmp = "연기";
+			 		 			break;
+			case "BEFORE": 		tmp = "경기전";
+	 		 		 			break;
+			case "PLAY": 		tmp = "경기중";
+			 	 	 			break;
+		}
+		return tmp;
 	}
 	
 }

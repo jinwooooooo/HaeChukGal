@@ -62,16 +62,50 @@ public class ManagerController {
 					JSONObject cupObj = (JSONObject)matchObj.get("gameDetailType");
 					GameInfoDTO gameInfoDTO2 = new GameInfoDTO();
 					gameInfoDTO2.setG_leagueName(leagueName);
-					gameInfoDTO2.setHomename((String)matchObj.get("homeTeamName"));
-					gameInfoDTO2.setHomeimage((String)matchObj.get("homeTeamImageUrl"));
-					gameInfoDTO2.setAwayname((String)matchObj.get("awayTeamName"));
-					gameInfoDTO2.setAwayimage((String)matchObj.get("awayTeamImageUrl"));
-					gameInfoDTO2.setStadium((String)matchObj.get("fieldName"));
-					gameInfoDTO2.setMatchdate((String)matchObj.get("startDate"));
+					if(matchObj.get("homeTeamName") == null) {
+						gameInfoDTO2.setHomename("");
+					}else {
+						gameInfoDTO2.setHomename((String)matchObj.get("homeTeamName"));
+					}
+					if(matchObj.get("homeTeamImageUrl") == null) {
+						gameInfoDTO2.setHomeimage("");
+					}else {
+						gameInfoDTO2.setHomeimage((String)matchObj.get("homeTeamImageUrl"));
+					}
+					if(matchObj.get("awayTeamName") == null) {
+						gameInfoDTO2.setAwayname("");
+					}else {
+						gameInfoDTO2.setAwayname((String)matchObj.get("awayTeamName"));
+					}
+					if(matchObj.get("awayTeamImageUrl") == null) {
+						gameInfoDTO2.setAwayimage("");
+					}else {
+						gameInfoDTO2.setAwayimage((String)matchObj.get("awayTeamImageUrl"));
+					}
+					if(matchObj.get("fieldName") == null) {
+						gameInfoDTO2.setStadium("");
+					}else {
+						gameInfoDTO2.setStadium((String)matchObj.get("fieldName"));
+					}
+					if(matchObj.get("startDate") == null) {
+						gameInfoDTO2.setMatchdate("");
+					}else {
+						gameInfoDTO2.setMatchdate((String)matchObj.get("startDate"));
+					}
+					if(matchObj.get("startTime") == null) {
+						gameInfoDTO2.setMatchtime("");
+					}else {
+						gameInfoDTO2.setMatchtime((String)matchObj.get("startTime"));
+					}
+					if((String)matchObj.get("gameStatus") == null) {
+						gameInfoDTO2.setGamestatus("");
+					}else {
+						gameInfoDTO2.setGamestatus((String)matchObj.get("gameStatus"));
+					}
 					gameInfoDTO2.setG_season(season);
-					gameInfoDTO2.setMatchtime((String)matchObj.get("startTime"));
-					gameInfoDTO2.setGamestatus((String)matchObj.get("gameStatus"));
-					if(leagueName == "uefacl" || leagueName == "facup" || leagueName == "uefacup"){
+					
+					
+					if(leagueName.equals("uefacl") || leagueName.equals("facup") || leagueName.equals("uefacup")){
 						gameInfoDTO2.setRound(cupObj.get("nameKo").toString());
 					}else{
 						gameInfoDTO2.setRound(matchObj.get("roundSeq").toString());
@@ -87,7 +121,6 @@ public class ManagerController {
 						gameInfoDTO2.setAwayscore(matchObj.get("awayResult").toString());
 						gameInfoDTO2.setHomescore(matchObj.get("homeResult").toString());
 					}
-					System.out.println(gameInfoDTO2);
 					soccerInfoService.insertGameInfo(gameInfoDTO2);
 				}
 			}
@@ -119,25 +152,79 @@ public class ManagerController {
 				PlayerInfoDTO playerInfoDTO2 = new PlayerInfoDTO();
 				playerInfoDTO2.setP_leagueName(leagueName);
 				playerInfoDTO2.setP_season(season);
-				playerInfoDTO2.setAssist(Integer.parseInt(playerStatObj.get("ast").toString()));
-				playerInfoDTO2.setScore(Integer.parseInt(playerStatObj.get("gf").toString()));
-				playerInfoDTO2.setAttackPoint(Integer.parseInt(playerStatObj.get("opts").toString()));
-				playerInfoDTO2.setShoot(Integer.parseInt(playerStatObj.get("sht").toString()));
-				playerInfoDTO2.setShootOnTarget(Integer.parseInt(playerStatObj.get("sog").toString()));
-				playerInfoDTO2.setFoul(Integer.parseInt(playerStatObj.get("fo").toString()));
-				playerInfoDTO2.setYellowCard(Integer.parseInt(playerStatObj.get("yel").toString()));
-				playerInfoDTO2.setRedCard(Integer.parseInt(playerStatObj.get("red").toString()));
-				playerInfoDTO2.setOffSide(Integer.parseInt(playerStatObj.get("off").toString()));
-				playerInfoDTO2.setRank(Integer.parseInt(playerStatObj.get("rank").toString()));
-				playerInfoDTO2.setGame(Integer.parseInt(playerStatObj.get("gp").toString()));
-				playerInfoDTO2.setPlayerName(playerObj.get("nameKo").toString());
+				if(playerStatObj.get("ast") == null) {
+					playerInfoDTO2.setAssist(-1);
+				}else {
+					playerInfoDTO2.setAssist(Integer.parseInt(playerStatObj.get("ast").toString()));
+				}
+				if(playerStatObj.get("gf") == null) {
+					playerInfoDTO2.setScore(-1);
+				}else {
+					playerInfoDTO2.setScore(Integer.parseInt(playerStatObj.get("gf").toString()));
+				}
+				if(playerStatObj.get("opts") == null) {
+					playerInfoDTO2.setAttackPoint(-1);
+				}else {
+					playerInfoDTO2.setAttackPoint(Integer.parseInt(playerStatObj.get("opts").toString()));
+				}
+				if(playerStatObj.get("sht") == null) {
+					playerInfoDTO2.setShoot(-1);
+				}else {
+					playerInfoDTO2.setShoot(Integer.parseInt(playerStatObj.get("sht").toString()));
+				}
+				if(playerStatObj.get("sog") == null) {
+					playerInfoDTO2.setShootOnTarget(-1);
+				}else {
+					playerInfoDTO2.setShootOnTarget(Integer.parseInt(playerStatObj.get("sog").toString()));
+				}
+				if(playerStatObj.get("fo") == null) {
+					playerInfoDTO2.setFoul(-1);
+				}else {
+					playerInfoDTO2.setFoul(Integer.parseInt(playerStatObj.get("fo").toString()));
+				}
+				if(playerStatObj.get("yel") == null) {
+					playerInfoDTO2.setYellowCard(-1);
+				}else {
+					playerInfoDTO2.setYellowCard(Integer.parseInt(playerStatObj.get("yel").toString()));
+				}
+				if(playerStatObj.get("red") == null) {
+					playerInfoDTO2.setRedCard(-1);
+				}else {
+					playerInfoDTO2.setRedCard(Integer.parseInt(playerStatObj.get("red").toString()));
+				}
+				if(playerStatObj.get("off") == null) {
+					playerInfoDTO2.setOffSide(-1);
+				}else {
+					playerInfoDTO2.setOffSide(Integer.parseInt(playerStatObj.get("off").toString()));
+				}
+				if(playerStatObj.get("rank") == null) {
+					playerInfoDTO2.setRank(-1);
+				}else {
+					playerInfoDTO2.setRank(Integer.parseInt(playerStatObj.get("rank").toString()));
+				}
+				if(playerStatObj.get("gp") == null) {
+					playerInfoDTO2.setGame(-1);
+				}else {
+					playerInfoDTO2.setGame(Integer.parseInt(playerStatObj.get("gp").toString()));
+				}
+				if(playerObj.get("nameKo") == null) {
+					playerInfoDTO2.setPlayerName("");
+				}else {
+					playerInfoDTO2.setPlayerName(playerObj.get("nameKo").toString());
+				}
+				
+				
 				if(playerObj.get("imageUrl") == null){
 					playerInfoDTO2.setPlayerImage("");
 				}else{
 					playerInfoDTO2.setPlayerImage(playerObj.get("imageUrl").toString());
 				}
-				playerInfoDTO2.setTeamName(teamObj.get("shortNameKo").toString());
-				System.out.println(playerInfoDTO2);
+				if(teamObj.get("shortNameKo") == null) {
+					playerInfoDTO2.setTeamName("");
+				}else {
+					playerInfoDTO2.setTeamName(teamObj.get("shortNameKo").toString());
+				}
+				
 				soccerInfoService.insertPlayerInfo(playerInfoDTO2);
 			}
 		} catch (Exception e) {
@@ -164,20 +251,64 @@ public class ManagerController {
 				JSONObject teamObj = (JSONObject)teamArr.get(i);
 				JSONObject teamInfoObj = (JSONObject) teamObj.get("rank");
 				TeamInfoDTO teamInfoDTO2 = new TeamInfoDTO();
-				teamInfoDTO2.setTeamName(teamObj.get("shortNameKo").toString());
-				teamInfoDTO2.setTeamImage(teamObj.get("imageUrl").toString());
-				teamInfoDTO2.setRank(Integer.parseInt(teamInfoObj.get("rank").toString()));
-				teamInfoDTO2.setGame(Integer.parseInt(teamInfoObj.get("game").toString()));
-				teamInfoDTO2.setWin(Integer.parseInt(teamInfoObj.get("win").toString()));
-				teamInfoDTO2.setDraw(Integer.parseInt(teamInfoObj.get("draw").toString()));
-				teamInfoDTO2.setLoss(Integer.parseInt(teamInfoObj.get("loss").toString()));
-				teamInfoDTO2.setScore(Integer.parseInt(teamInfoObj.get("gf").toString()));
-				teamInfoDTO2.setLossPoint(Integer.parseInt(teamInfoObj.get("ga").toString()));
-				teamInfoDTO2.setGapScore(Integer.parseInt(teamInfoObj.get("gd").toString()));
-				teamInfoDTO2.setPoint(Integer.parseInt(teamInfoObj.get("pts").toString()));
+				if(teamObj.get("shortNameKo") == null) {
+					teamInfoDTO2.setTeamName("");
+				}else {
+					teamInfoDTO2.setTeamName(teamObj.get("shortNameKo").toString());
+				}
+				if(teamObj.get("imageUrl") == null) {
+					teamInfoDTO2.setTeamImage("");
+				}else {
+					teamInfoDTO2.setTeamImage(teamObj.get("imageUrl").toString());
+				}
+				if(teamInfoObj.get("rank") == null) {
+					teamInfoDTO2.setRank(-1);
+				}else {
+					teamInfoDTO2.setRank(Integer.parseInt(teamInfoObj.get("rank").toString()));
+				}
+				if(teamInfoObj.get("game") == null) {
+					teamInfoDTO2.setGame(-1);
+				}else {
+					teamInfoDTO2.setGame(Integer.parseInt(teamInfoObj.get("game").toString()));
+				}
+				if(teamInfoObj.get("win") == null) {
+					teamInfoDTO2.setWin(-1);
+				}else {
+					teamInfoDTO2.setWin(Integer.parseInt(teamInfoObj.get("win").toString()));
+				}
+				if(teamInfoObj.get("draw") == null) {
+					teamInfoDTO2.setDraw(-1);
+				}else {
+					teamInfoDTO2.setDraw(Integer.parseInt(teamInfoObj.get("draw").toString()));
+				}
+				if(teamInfoObj.get("loss") == null) {
+					teamInfoDTO2.setLoss(-1);
+				}else {
+					teamInfoDTO2.setLoss(Integer.parseInt(teamInfoObj.get("loss").toString()));
+				}
+				if(teamInfoObj.get("gf") == null) {
+					teamInfoDTO2.setScore(-1);
+				}else {
+					teamInfoDTO2.setScore(Integer.parseInt(teamInfoObj.get("gf").toString()));
+				}
+				if(teamInfoObj.get("ga") == null) {
+					teamInfoDTO2.setLossPoint(-1);
+				}else {
+					teamInfoDTO2.setLossPoint(Integer.parseInt(teamInfoObj.get("ga").toString()));
+				}
+				if(teamInfoObj.get("gd") == null ) {
+					teamInfoDTO2.setGapScore(-1);
+				}else {
+					teamInfoDTO2.setGapScore(Integer.parseInt(teamInfoObj.get("gd").toString()));
+				}
+				if(teamInfoObj.get("pts") == null) {
+					teamInfoDTO2.setPoint(-1);
+				}else {
+					teamInfoDTO2.setPoint(Integer.parseInt(teamInfoObj.get("pts").toString()));
+				}
+				
 				teamInfoDTO2.setT_leagueName(leagueName);
 				teamInfoDTO2.setT_season(season);
-				System.out.println(teamInfoDTO2);
 				soccerInfoService.insertTeamInfo(teamInfoDTO2);
 			}
 		} catch (Exception e) {
