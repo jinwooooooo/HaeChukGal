@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.mapper.TeamInfoMapper">
 	<insert id="insertTeamInfo">
-		insert into TEAMRANK(team_no, rank, TeamName, TeamImage, game, win, draw, loss, score, lossPoint, gapScore, point, season, leagueName)
-		values((select nvl(max(team_no),0)+1 as team_no from TEAMRANK),  #{rank}, #{TeamName}, #{TeamImage}, #{game}, #{win}, #{draw}, #{loss}, #{score}, #{lossPoint}, #{gapScore}, #{point}, #{t_season}, #{t_leagueName})
+		insert into TEAMRANK(team_no, rank, teamName, teamImage, game, win, draw, loss, score, lossPoint, gapScore, point, season, leagueName)
+		values((select nvl(max(team_no),0)+1 as team_no from TEAMRANK),  #{rank}, #{teamName}, #{teamImage}, #{game}, #{win}, #{draw}, #{loss}, #{score}, #{lossPoint}, #{gapScore}, #{point}, #{t_season}, #{t_leagueName})
 	</insert>
 	<delete id="deleteTeamInfo" >
 		delete from TEAMRANK where season = #{t_season} AND leagueName = #{t_leagueName}

@@ -238,7 +238,30 @@
 					   <img src="${gameList.homeimage}" style="width: 40px; height: 40px;"/> ${gameList.homename} ${gameList.homescore} vs ${gameList.awayscore} ${gameList.awayname} <img src="${gameList.awayimage}" style="width: 40px; height: 40px;"/>
 					</td>
 					<td>${gameList.leagueName}</td>
-					<td>${gameList.round}R</td>
+					<c:if test="${gameList.leagueName=='프리미어리그'}">
+						<td>${gameList.round}R</td>
+					</c:if>
+					<c:if test="${gameList.leagueName=='라리가'}">
+						<td>${gameList.round}R</td>
+					</c:if>
+					<c:if test="${gameList.leagueName=='분데스리가'}">
+						<td>${gameList.round}R</td>
+					</c:if>
+					<c:if test="${gameList.leagueName=='세리에 A'}">
+						<td>${gameList.round}R</td>
+					</c:if>
+					<c:if test="${gameList.leagueName=='리그 앙'}">
+						<td>${gameList.round}R</td>
+					</c:if>
+					<c:if test="${gameList.leagueName=='챔피언스리그'}">
+						<td>${gameList.round}</td>
+					</c:if>
+					<c:if test="${gameList.leagueName=='유로파리그'}">
+						<td>${gameList.round}</td>
+					</c:if>
+					<c:if test="${gameList.leagueName=='FA 컵'}">
+						<td>${gameList.round}</td>
+					</c:if>
 					<c:if test="${gameList.gamestatus=='종료'}">
 						<td>
 							<svg xmlns="http://www.w3.org/2000/svg" style="color:#2E2EFE;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
