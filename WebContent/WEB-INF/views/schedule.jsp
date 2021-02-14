@@ -82,7 +82,7 @@
   <c:set var="startYear" value="2020"/>
   <c:set var="endYear" value="2021"/>
   <c:set var="choiceLeague" value="epl"/>
-  <c:set var="choiceMonth" value="02"/>
+  <c:set var="choiceMonth" value="2"/>
   
   
   <main id="main">
@@ -193,6 +193,7 @@
         </div> --%>
         
         <br>
+        <div id="schedulematch">
         <div style="text-align:right;">
 	        <svg xmlns="http://www.w3.org/2000/svg" style="color:#2E2EFE;" width="16" height="16" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
 			<circle cx="8" cy="8" r="8"/>
@@ -270,7 +271,7 @@
   		  	</c:forEach>
        	  </tbody>
        	</table>
-       	
+       	</div>
       </div>
     </section>
     <!-- End Portfolio Section -->
@@ -309,6 +310,14 @@
 	    	data:{startYear:startYear, endYear:endYear, choiceLeague:choiceLeague, choiceMonth:choiceMonth},
 	    	success:function(data){
 	    		$("#schedulemonth").html(data);
+	    	}
+	    });
+	    
+	    $.ajax({
+	    	url:"schedulematch",
+	    	data:{startYear:startYear, endYear:endYear, choiceLeague:choiceLeague, choiceMonth:choiceMonth},
+	    	success:function(data){
+	    		$("#schedulematch").html(data);
 	    	}
 	    });
 	    
