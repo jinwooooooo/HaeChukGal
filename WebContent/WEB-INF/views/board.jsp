@@ -86,6 +86,7 @@
           <h2>자유게시판</h2>
         </div>
         
+        
         <!--
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
