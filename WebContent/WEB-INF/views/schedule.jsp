@@ -97,7 +97,7 @@
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <ul id="portfolio-flters">
-              <li  class="filter-active">
+              <li class="filter-active">
               	<a href="javascript:schedule(${startYear} , ${endYear}, 'epl' , '${choiceMonth}', '3')">
                   <span>프리미어리그</span>
               	</a>
@@ -162,7 +162,7 @@
           <div id="schedulemonth" class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <ul style="display:table;" id="portfolio-flters1">
             	<c:forEach var="montharr" items="${montharr}" >
-            		  <li class="month" style="display:table-cell; border:1px solid #bdbfbf;">
+            		  <li style="display:table-cell; border:1px solid #bdbfbf;">
 		              	<a href="javascript:schedule(${startYear} , ${endYear}, '${choiceLeague}' , '${montharr}', '12')" >
 		                  <span>${montharr}월</span>
 		              	</a>

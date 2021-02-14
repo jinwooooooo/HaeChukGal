@@ -86,6 +86,7 @@
           <h2>자유게시판</h2>
         </div>
         
+        <!--
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <ul id="portfolio-flters">
@@ -152,6 +153,7 @@
 		    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
 		  </form>
 		</nav>
+		<!-->
 		<br/><br/>
 		<c:if test="${name != null}">
 			<a href="javascript:writeform()" type="button" class="btn btn-light" style="float:right; text-align:right; padding:.375rem .75rem; border: 1px solid #ced4da; border-radius: .25rem;">글 등록</a>

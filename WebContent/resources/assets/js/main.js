@@ -174,7 +174,6 @@
   });
   
   // another filter - id: filter1
-  
 
   // Portfolio details carousel
   $(".portfolio-details-carousel").owlCarousel({

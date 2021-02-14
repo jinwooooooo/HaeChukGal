@@ -79,58 +79,67 @@
   <!-- End Header -->
   <main id="main">
   	<section id="contact" class="contact">
-      <div class="container" data-aos="fade-up" style="display:block;">
-        <h2 style="text-align:center;">경기 일정 업데이트</h2><br/>
-		<form method="post" id="gameinfo" name="gameinfo" style="text-align:center;">
-		<table width="800" border="1" style="margin:0 auto;">
-		<tr>
-			<td>시즌</td>
-			<td><input type="text" name="g_season" id="g_season"></td>
-			<td>리그이름</td>
-			<td><input type="text" name="g_leagueName" id="g_leagueName"></td>
-			<td colspan="2">
-				<input type="button" value="등록" id="btn_write_gameInfo" onclick="javascript: form.action='gamewrite';"/>
-				<input type="button" value="삭제" id="btn_delete_gameInfo" onclick="javascript: form.action='gamedelete';"/>
-			</td>
-		</tr>
-		</table>
-		</form>
+      <div class="container" data-aos="fade-up" style="display:inline-block;">
+      	 <div style="border: 1px solid black; border-radius:1em; width:800px; height:200px; margin:0 auto;">
+	        <br/>
+	        <h2 style="text-align:center;">경기 일정 업데이트</h2><br/>
+			<form class="join_form" method="post" id="gameinfo" name="gameinfo" style="margin:0 auto; width:100%;">
+			<table width="800" height="80" border="1" bordercolor="white" style="margin:0 auto;">
+			<tr>
+				<td>　　시즌</td>
+				<td><input type="text" name="g_season" id="g_season"></td>
+				<td>리그이름</td>
+				<td><input type="text" name="g_leagueName" id="g_leagueName"></td>
+				<td colspan="2">
+					<input type="button" value="등록" id="btn_write_gameInfo" onclick="javascript: form.action='gamewrite';"/>
+					<span>　</span>
+					<input type="button" value="삭제" id="btn_delete_gameInfo" onclick="javascript: form.action='gamedelete';"/>
+				</td>
+			</tr>
+			</table>
+			</form>
+		</div>
+		<br/><br/>
+		<div style="border: 1px solid black; border-radius:1em; width:800px; height:200px; margin:0 auto;">
+			<br/>
+			<h2 style="text-align:center;">선수 순위 업데이트</h2><br/>
+			<form class="join_form" method="post" id="playerinfo" name="playerinfo" style="margin:0 auto; width:100%;">
+			<table width="800" height="80" border="1" bordercolor="white" style="margin:0 auto;">
+			<tr>
+				<td>　　시즌</td>
+				<td><input type="text" name="p_season" id="p_season"></td>
+				<td>리그이름</td>
+				<td><input type="text" name="p_leagueName" id="p_leagueName"></td>
+				<td colspan="2">
+					<input type="button" value="등록" id="btn_write_playerInfo" onclick="javascript: form.action='playerwrite';"/>
+					<span>　</span>
+					<input type="button" value="삭제" id="btn_delete_playerInfo" onclick="javascript: form.action='playerdelete';"/>
+				</td>
+			</tr>
+			</table>  
+			</form>
+		</div>
 		
 		<br/><br/>
-		
-		<h2 style="text-align:center;">선수 순위 업데이트</h2><br/>
-		<form method="post" id="playerinfo" name="playerinfo" style="text-align:center;">
-		<table width="800" border="1" style="margin:0 auto;">
-		<tr>
-			<td>시즌</td>
-			<td><input type="text" name="p_season" id="p_season"></td>
-			<td>리그이름</td>
-			<td><input type="text" name="p_leagueName" id="p_leagueName"></td>
-			<td colspan="2">
-				<input type="button" value="등록" id="btn_write_playerInfo" onclick="javascript: form.action='playerwrite';"/>
-				<input type="button" value="삭제" id="btn_delete_playerInfo" onclick="javascript: form.action='playerdelete';"/>
-			</td>
-		</tr>
-		</table>  
-		</form>
-		
-		<br/><br/>
-		
-		<h2 style="text-align:center;">팀 순위 업데이트</h2><br/>
-		<form method="post" id="teaminfo" name="teaminfo" style="text-align:center;">
-		<table width="800" border="1" style="margin:0 auto;">
-		<tr>
-			<td>시즌</td>
-			<td><input type="text" name="t_season" id="t_season"></td>
-			<td>리그이름</td>
-			<td><input type="text" name="t_leagueName" id="t_leagueName"></td>
-			<td colspan="2">
-				<input type="button" value="등록" id="btn_write_teamInfo" onclick="javascript: form.action='teamwrite';"/>
-				<input type="button" value="삭제" id="btn_delete_teamInfo" onclick="javascript: form.action='teamdelete';"/>
-			</td>
-		</tr>
-		</table>
-		</form>
+		<div style="border: 1px solid black; border-radius:1em; width:800px; height:200px; margin:0 auto;">
+			<br/>
+			<h2 style="text-align:center;">팀 순위 업데이트</h2><br/>
+			<form class="join_form" method="post" id="teaminfo" name="teaminfo" style="margin:0 auto; width:100%;">
+			<table width="800" height="80" border="1" bordercolor="white" style="margin:0 auto;">
+			<tr>
+				<td>　　시즌</td>
+				<td><input type="text" name="t_season" id="t_season"></td>
+				<td>리그이름</td>
+				<td><input type="text" name="t_leagueName" id="t_leagueName"></td>
+				<td colspan="2">
+					<input type="button" value="등록" id="btn_write_teamInfo" onclick="javascript: form.action='teamwrite';"/>
+					<span>　</span>
+					<input type="button" value="삭제" id="btn_delete_teamInfo" onclick="javascript: form.action='teamdelete';"/>
+				</td>
+			</tr>
+			</table>
+			</form>
+		</div>
       </div>
     </section>
   </main>
