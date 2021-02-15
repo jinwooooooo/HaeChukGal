@@ -80,7 +80,7 @@
   <main id="main">
   	<section id="contact" class="contact">
       <div class="container" data-aos="fade-up" style="display:inline-block;">
-      	 <div style="border: 1px solid black; border-radius:1em; width:800px; height:200px; margin:0 auto;">
+      	 <div style="border: 1px solid black; border-radius:1em; width:800px; height:187px; margin:0 auto;">
 	        <br/>
 	        <h2 style="text-align:center;">경기 일정 업데이트</h2><br/>
 			<form class="join_form" method="post" id="gameinfo" name="gameinfo" style="margin:0 auto; width:100%;">
@@ -99,8 +99,8 @@
 			</table>
 			</form>
 		</div>
-		<br/><br/>
-		<div style="border: 1px solid black; border-radius:1em; width:800px; height:200px; margin:0 auto;">
+		<br/>
+		<div style="border: 1px solid black; border-radius:1em; width:800px; height:187px; margin:0 auto;">
 			<br/>
 			<h2 style="text-align:center;">선수 순위 업데이트</h2><br/>
 			<form class="join_form" method="post" id="playerinfo" name="playerinfo" style="margin:0 auto; width:100%;">
@@ -120,8 +120,8 @@
 			</form>
 		</div>
 		
-		<br/><br/>
-		<div style="border: 1px solid black; border-radius:1em; width:800px; height:200px; margin:0 auto;">
+		<br/>
+		<div style="border: 1px solid black; border-radius:1em; width:800px; height:187px; margin:0 auto;">
 			<br/>
 			<h2 style="text-align:center;">팀 순위 업데이트</h2><br/>
 			<form class="join_form" method="post" id="teaminfo" name="teaminfo" style="margin:0 auto; width:100%;">
