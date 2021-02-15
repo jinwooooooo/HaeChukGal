@@ -24,7 +24,7 @@ public class PlayerRankController {
 		playerInfoDTO.setP_leagueName("epl");
 		playerInfoDTO.setP_season("20202021");
 		List<PlayerInfoDTO> playerRank = soccerInfoService.searchPlayerRank(playerInfoDTO);
-		
+		String check = "F";
 		for(PlayerInfoDTO s : playerRank) {
 			String imageURL = s.getPlayerImage();
 			String[] image = imageURL.split("/");
@@ -34,8 +34,11 @@ public class PlayerRankController {
 				element = (String)list.get(list.size() - 1);
 //			String playerImage = "http://img1.daumcdn.net/thumb/S100x100/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fsports%2Fplayer%2F300%2F14%2F"+element+"&scode=default_face_profile_big_p";
 			s.setPlayerImage(element);
+			if(s.getShoot() == -1) {
+				check = "T";
+			}
 		}
-		
+		model.addAttribute("check", check);
 		model.addAttribute("playerRank", playerRank);
 		return "playerrank";
 	}
@@ -50,7 +53,7 @@ public class PlayerRankController {
 		playerInfoDTO.setP_leagueName(choiceLeague);
 		playerInfoDTO.setP_season(season);
 		List<PlayerInfoDTO> playerRank = soccerInfoService.searchPlayerRank(playerInfoDTO);
-		
+		String check = "F";
 		for(PlayerInfoDTO s : playerRank) {
 			String imageURL = s.getPlayerImage();
 			String[] image = imageURL.split("/");
@@ -60,8 +63,12 @@ public class PlayerRankController {
 				element = (String)list.get(list.size() - 1);
 //			String playerImage = "http://img1.daumcdn.net/thumb/S100x100/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fsports%2Fplayer%2F300%2F14%2F"+element+"&scode=default_face_profile_big_p";
 			s.setPlayerImage(element);
+			if(s.getShoot() == -1) {
+				check = "T";
+			}
 		}
 		
+		model.addAttribute("check", check);
 		model.addAttribute("playerRank", playerRank);
 		model.addAttribute("startYear",startYear);
 		model.addAttribute("endYear",endYear);

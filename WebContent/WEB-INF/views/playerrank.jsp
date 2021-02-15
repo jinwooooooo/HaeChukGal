@@ -154,11 +154,13 @@
 	       	      <th>득점</th>
 	       	      <th>도움</th>
 	       	      <th>공격포인트</th>
-	       	      <th>슈팅</th>
-	       	      <th>유효슈팅</th>
-	       	      <th>파울</th>
-	       	      <th>경고</th>
-	       	      <th>퇴장</th>
+	       	      <c:if test="${check == 'F'}">
+			      	  <th>슈팅</th>
+				      <th>유효슈팅</th>
+				      <th>파울</th>
+				      <th>경고</th>
+				      <th>퇴장</th>
+			      </c:if>
 	       	    </tr>
 	       	  </thead>
 	       	  <tbody>
@@ -171,11 +173,13 @@
 	       	      <td>${playerRank.score}</td>
 	       	      <td>${playerRank.assist}</td>
 	       	      <td>${playerRank.attackPoint}</td>
-	       	      <td>${playerRank.shoot}</td>
-	       	      <td>${playerRank.shootOnTarget}</td>
-	       	      <td>${playerRank.foul}</td>
-	       	      <td>${playerRank.yellowCard}</td>
-	       	      <td>${playerRank.redCard}</td>
+	       	      <c:if test="${check == 'F'}">
+	    	      	  <td>${playerRank.shoot}</td>
+		    	      <td>${playerRank.shootOnTarget}</td>
+		    	      <td>${playerRank.foul}</td>
+		    	      <td>${playerRank.yellowCard}</td>
+		    	      <td>${playerRank.redCard}</td>
+    	     	 </c:if>
 	       	    </tr>
 	       	  </c:forEach>  
 	       	  </tbody>
